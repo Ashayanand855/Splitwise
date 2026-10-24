@@ -30,6 +30,7 @@ import java.util.regex.Pattern;
  * Compile:  javac SplitwiseApp.java
  * Run:      java SplitwiseApp
  */
+
 public class SplitwiseApp {
 
     // ---------------------------------------------------------------- Models
@@ -120,10 +121,108 @@ public class SplitwiseApp {
     public static void initSeedData() {
         if (!groups.isEmpty()) return;
 
-        Group goa = new Group("Goa Trip 🏖️");
+        // Group 1: Goa Trip
+        Group goa = new Group("Goa Trip");
         goa.members.addAll(Arrays.asList("Rahul", "Priya", "Amit", "You"));
-        // Fresh start: 0 expenses, 0 debts, everything starts at 0.00
+
+        // Expenses for Goa Trip
+        Map<String, Long> cabShares = new LinkedHashMap<>();
+        cabShares.put("Rahul", 35000L);
+        cabShares.put("Priya", 35000L);
+        cabShares.put("Amit", 35000L);
+        cabShares.put("You", 35000L);
+        goa.expenses.add(new Expense("exp_cab_1", "Airport Cab - Mopa to Candolim", "Rahul", cabShares, false, "transport", "Oct 21, 2024", "Prepaid taxi receipt #TX-882"));
+
+        Map<String, Long> blinkitShares = new LinkedHashMap<>();
+        blinkitShares.put("Rahul", 46000L);
+        blinkitShares.put("Priya", 46000L);
+        blinkitShares.put("Amit", 46000L);
+        blinkitShares.put("You", 46000L);
+        goa.expenses.add(new Expense("exp_groceries_1", "Blinkit - Snacks and Water", "You", blinkitShares, false, "groceries", "Oct 22, 2024", "Order #BL-99231"));
+
+        Map<String, Long> chaiShares = new LinkedHashMap<>();
+        chaiShares.put("Rahul", 9000L);
+        chaiShares.put("Priya", 9000L);
+        chaiShares.put("Amit", 9000L);
+        chaiShares.put("You", 9000L);
+        goa.expenses.add(new Expense("exp_chai_1", "Beach Shack Breakfast and Tea", "Amit", chaiShares, false, "food", "Oct 22, 2024", "Bill paid by cash"));
+
+        Map<String, Long> scubaShares = new LinkedHashMap<>();
+        scubaShares.put("Rahul", 175000L);
+        scubaShares.put("Priya", 175000L);
+        scubaShares.put("Amit", 175000L);
+        scubaShares.put("You", 175000L);
+        goa.expenses.add(new Expense("exp_scuba_1", "Scuba Diving at Grande Island", "Rahul", scubaShares, false, "entertainment", "Oct 23, 2024", "Includes gear and boat transfer"));
+
+        Map<String, Long> dinnerShares = new LinkedHashMap<>();
+        dinnerShares.put("Rahul", 132000L);
+        dinnerShares.put("Priya", 132000L);
+        dinnerShares.put("Amit", 132000L);
+        dinnerShares.put("You", 132000L);
+        goa.expenses.add(new Expense("exp_dinner_1", "Fishermans Wharf Dinner", "Priya", dinnerShares, false, "food", "Oct 23, 2024", "Table of 4"));
+
+        Map<String, Long> fuelShares = new LinkedHashMap<>();
+        fuelShares.put("Rahul", 30000L);
+        fuelShares.put("Priya", 30000L);
+        fuelShares.put("Amit", 30000L);
+        fuelShares.put("You", 30000L);
+        goa.expenses.add(new Expense("exp_fuel_1", "Scooter Rental and Petrol", "You", fuelShares, false, "transport", "Oct 24, 2024", "2 Honda Activas for 3 days"));
+
         groups.put(goa.name, goa);
+
+        // Group 2: Koramangala Flat
+        Group flat = new Group("Koramangala Flat");
+        flat.members.addAll(Arrays.asList("Rohan", "Sneha", "Karan", "You"));
+
+        Map<String, Long> rentShares = new LinkedHashMap<>();
+        rentShares.put("Rohan", 1250000L);
+        rentShares.put("Sneha", 1250000L);
+        rentShares.put("Karan", 1250000L);
+        rentShares.put("You", 1250000L);
+        flat.expenses.add(new Expense("exp_rent_1", "October Flat Rent and Maintenance", "You", rentShares, false, "rent", "Oct 05, 2024", "Transferred via NEFT to landlord"));
+
+        Map<String, Long> wifiShares = new LinkedHashMap<>();
+        wifiShares.put("Rohan", 37500L);
+        wifiShares.put("Sneha", 37500L);
+        wifiShares.put("Karan", 37500L);
+        wifiShares.put("You", 37500L);
+        flat.expenses.add(new Expense("exp_wifi_1", "ACT Fibernet Broadband 300Mbps", "Sneha", wifiShares, false, "bills", "Oct 10, 2024", "Account #ACT-44910"));
+
+        Map<String, Long> cookShares = new LinkedHashMap<>();
+        cookShares.put("Rohan", 200000L);
+        cookShares.put("Sneha", 200000L);
+        cookShares.put("Karan", 200000L);
+        cookShares.put("You", 200000L);
+        flat.expenses.add(new Expense("exp_cook_1", "Monthly Cook Salary (Savitri Bai)", "Rohan", cookShares, false, "services", "Oct 15, 2024", "Paid via GPay"));
+
+        Map<String, Long> zeptoShares = new LinkedHashMap<>();
+        zeptoShares.put("Rohan", 32000L);
+        zeptoShares.put("Sneha", 32000L);
+        zeptoShares.put("Karan", 32000L);
+        zeptoShares.put("You", 32000L);
+        flat.expenses.add(new Expense("exp_zepto_1", "Zepto - Cleaning Supplies and Oil", "You", zeptoShares, false, "groceries", "Oct 18, 2024", "Detergent, dishwash, olive oil"));
+
+        groups.put(flat.name, flat);
+
+        // Group 3: Office Lunches
+        Group office = new Group("Office Lunches");
+        office.members.addAll(Arrays.asList("Vikram", "Ananya", "Nikhil", "You"));
+
+        Map<String, Long> lunch1Shares = new LinkedHashMap<>();
+        lunch1Shares.put("Vikram", 42000L);
+        lunch1Shares.put("Ananya", 42000L);
+        lunch1Shares.put("Nikhil", 42000L);
+        lunch1Shares.put("You", 42000L);
+        office.expenses.add(new Expense("exp_lunch_1", "Truffles Burgers and Pasta", "Vikram", lunch1Shares, false, "food", "Oct 22, 2024", "Friday team lunch"));
+
+        Map<String, Long> chaiOfficeShares = new LinkedHashMap<>();
+        chaiOfficeShares.put("Vikram", 12000L);
+        chaiOfficeShares.put("Ananya", 12000L);
+        chaiOfficeShares.put("Nikhil", 12000L);
+        chaiOfficeShares.put("You", 12000L);
+        office.expenses.add(new Expense("exp_chai_off", "Chai Point - Ginger Chai Flask", "Ananya", chaiOfficeShares, false, "food", "Oct 23, 2024", "Evening tea break"));
+
+        groups.put(office.name, office);
     }
 
     // ------------------------------------------------------- Embedded Web Server
@@ -172,10 +271,26 @@ public class SplitwiseApp {
                 }
             }
 
-            // 2. REST API: GET /api/group?name=...
+            // 2. REST API: GET /api/group?name=... or POST /api/group (create group)
+            if (path.equals("/api/group") && method.equalsIgnoreCase("POST")) {
+                String body = readRequestBody(exchange);
+                String name = extractString(body, "name");
+                if (name.isEmpty()) name = extractString(body, "group");
+                if (!name.isEmpty()) {
+                    synchronized (groups) {
+                        Group g = groups.computeIfAbsent(name, Group::new);
+                        if (!g.members.contains("You")) g.members.add("You");
+                        sendResponse(exchange, 200, groupToJson(g), "application/json");
+                    }
+                    return;
+                }
+                sendResponse(exchange, 400, "{\"error\":\"Missing group name\"}", "application/json");
+                return;
+            }
+
             if (path.equals("/api/group") && method.equalsIgnoreCase("GET")) {
                 String query = exchange.getRequestURI().getQuery();
-                String groupName = "Goa Trip 🏖️";
+                String groupName = "Goa Trip";
                 if (query != null && query.contains("name=")) {
                     try {
                         String raw = query.substring(query.indexOf("name=") + 5);
@@ -194,6 +309,32 @@ public class SplitwiseApp {
                 } else {
                     sendResponse(exchange, 404, "{\"error\":\"Group not found\"}", "application/json");
                 }
+                return;
+            }
+
+            // 2b. REST API: POST /api/group/member (add member)
+            if ((path.equals("/api/group/member") || path.equals("/api/member")) && method.equalsIgnoreCase("POST")) {
+                String body = readRequestBody(exchange);
+                String grpName = extractString(body, "group");
+                Group g = groups.get(grpName);
+                if (g == null && !groups.isEmpty()) g = groups.values().iterator().next();
+
+                if (g != null) {
+                    String memberName = extractString(body, "name");
+                    if (memberName.isEmpty()) memberName = extractString(body, "member");
+                    if (!memberName.isEmpty()) {
+                        synchronized (g) {
+                            if (!g.members.contains(memberName)) {
+                                g.members.add(memberName);
+                            }
+                        }
+                        sendResponse(exchange, 200, groupToJson(g), "application/json");
+                        return;
+                    }
+                    sendResponse(exchange, 400, "{\"error\":\"Member name required\"}", "application/json");
+                    return;
+                }
+                sendResponse(exchange, 400, "{\"error\":\"Invalid group\"}", "application/json");
                 return;
             }
 
@@ -216,8 +357,8 @@ public class SplitwiseApp {
                 return;
             }
 
-            // 4. REST API: POST /api/expense
-            if (path.equals("/api/expense") && method.equalsIgnoreCase("POST")) {
+            // 4. REST API: POST /api/expense or /api/group/expense
+            if ((path.equals("/api/expense") || path.equals("/api/group/expense")) && method.equalsIgnoreCase("POST")) {
                 String body = readRequestBody(exchange);
                 String grpName = extractString(body, "group");
                 Group g = groups.get(grpName);
@@ -256,8 +397,8 @@ public class SplitwiseApp {
                 return;
             }
 
-            // 5. REST API: POST /api/settle
-            if (path.equals("/api/settle") && method.equalsIgnoreCase("POST")) {
+            // 5. REST API: POST /api/settle or /api/group/settle
+            if ((path.equals("/api/settle") || path.equals("/api/group/settle")) && method.equalsIgnoreCase("POST")) {
                 String body = readRequestBody(exchange);
                 String grpName = extractString(body, "group");
                 Group g = groups.get(grpName);

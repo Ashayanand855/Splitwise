@@ -1,1944 +1,2107 @@
 <!DOCTYPE html>
-<html class="light" lang="en">
+<html lang="en">
 <head>
   <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
-  <meta content="mobile_stack" name="shell-type"/>
-  <title>Splitwise India - Group Detail & Expenses</title>
-  
-  <link href="https://fonts.googleapis.com" rel="preconnect"/>
-  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
-  <script src="https://cdn.tailwindcss.com"></script>
-  
-  <script id="tailwind-config">
-    tailwind.config = {
-      darkMode: "class",
-      theme: {
-        extend: {
-          colors: {
-            "on-surface-variant": "#3c4a44",
-            "primary-fixed": "#6bfad4",
-            "surface-dim": "#d2d9f4",
-            "on-surface": "#131b2e",
-            "on-secondary-fixed": "#410007",
-            "primary-container": "#1cc29f",
-            "on-error": "#ffffff",
-            "surface-bright": "#faf8ff",
-            "tertiary-fixed": "#6ffbbe",
-            "on-error-container": "#93000a",
-            "inverse-on-surface": "#eef0ff",
-            "tertiary-container": "#28c38a",
-            "on-primary-fixed-variant": "#005140",
-            "surface-container-lowest": "#ffffff",
-            "on-primary-container": "#004a3a",
-            "surface-variant": "#dae2fd",
-            "on-primary-fixed": "#002018",
-            "outline-variant": "#bbcac3",
-            "tertiary": "#006c49",
-            "secondary": "#b52330",
-            "on-secondary-fixed-variant": "#92001b",
-            "on-secondary": "#ffffff",
-            "on-background": "#131b2e",
-            "outline": "#6c7a74",
-            "secondary-fixed": "#ffdad8",
-            "surface": "#faf8ff",
-            "surface-container": "#eaedff",
-            "on-tertiary-container": "#004a31",
-            "primary-fixed-dim": "#49ddb9",
-            "surface-container-low": "#f2f3ff",
-            "error": "#ba1a1a",
-            "surface-container-high": "#e2e7ff",
-            "inverse-surface": "#283044",
-            "surface-container-highest": "#dae2fd",
-            "secondary-fixed-dim": "#ffb3b0",
-            "on-tertiary-fixed": "#002113",
-            "secondary-container": "#ff5a5f",
-            "on-secondary-container": "#60000e",
-            "error-container": "#ffdad6",
-            "on-primary": "#ffffff",
-            "background": "#faf8ff",
-            "primary": "#006b56",
-            "tertiary-fixed-dim": "#4edea3",
-            "on-tertiary": "#ffffff",
-            "inverse-primary": "#49ddb9",
-            "on-tertiary-fixed-variant": "#005236",
-            "surface-tint": "#006b56"
-          },
-          borderRadius: {
-            "DEFAULT": "0.25rem",
-            "lg": "0.5rem",
-            "xl": "0.75rem",
-            "full": "9999px"
-          },
-          spacing: {
-            "margin": "1rem",
-            "margin-mobile": "1rem",
-            "gutter": "1rem",
-            "space-sm": "0.5rem",
-            "space-xl": "2rem",
-            "space-xs": "0.25rem",
-            "space-md": "1rem",
-            "gutter-mobile": "0.75rem",
-            "space-lg": "1.5rem"
-          },
-          fontFamily: {
-            "label-lg": ["Plus Jakarta Sans"],
-            "body-lg": ["Plus Jakarta Sans"],
-            "headline-sm": ["Plus Jakarta Sans"],
-            "headline-md": ["Plus Jakarta Sans"],
-            "label-sm": ["Plus Jakarta Sans"],
-            "body-md": ["Plus Jakarta Sans"],
-            "headline-lg": ["Plus Jakarta Sans"],
-            "headline-xl-mobile": ["Plus Jakarta Sans"],
-            "headline-xl": ["Plus Jakarta Sans"],
-            "currency-md": ["Plus Jakarta Sans"],
-            "currency-display-mobile": ["Plus Jakarta Sans"],
-            "currency-display": ["Plus Jakarta Sans"],
-            "label-md": ["Plus Jakarta Sans"],
-            "body-sm": ["Plus Jakarta Sans"]
-          },
-          fontSize: {
-            "label-lg": ["14px", { "lineHeight": "20px", "fontWeight": "600" }],
-            "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
-            "headline-sm": ["16px", { "lineHeight": "24px", "fontWeight": "600" }],
-            "headline-md": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
-            "label-sm": ["10px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
-            "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
-            "headline-lg": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
-            "headline-xl-mobile": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
-            "headline-xl": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.03em", "fontWeight": "800" }],
-            "currency-md": ["18px", { "lineHeight": "24px", "fontWeight": "700" }],
-            "currency-display-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
-            "currency-display": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
-            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
-            "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }]
-          }
-        }
-      }
-    };
-  </script>
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"/>
+  <title>Splitwise - Expense Sharing and Settlements</title>
+
+  <!-- Typography: Inter for UI clarity, JetBrains Mono for monetary tabular alignment -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+
   <style>
-    @layer base {
-      html, body {
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        background-color: #faf8ff;
-      }
-      .pb-safe { padding-bottom: max(env(safe-area-inset-bottom, 0px), 16px); }
-      .pt-safe { padding-top: env(safe-area-inset-top, 0px); }
+    :root {
+      /* Warm off-white canvas, restrained human-designed fintech product */
+      --bg-base: #f7f6f2;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f1efe9;
+      --bg-hover: #eceae3;
+
+      /* Muted gray borders */
+      --border-subtle: #e5e2da;
+      --border-muted: #d6d2c6;
+      --border-focus: #111827;
+
+      /* Charcoal text hierarchy */
+      --text-main: #18181b;
+      --text-secondary: #52525b;
+      --text-muted: #71717a;
+      --text-dim: #a1a1aa;
+
+      /* Single restrained accent: Emerald */
+      --accent: #0f766e;
+      --accent-hover: #115e59;
+      --accent-subtle: #f0fdf4;
+      --accent-border: #bbf7d0;
+
+      /* Semantic financial indicators */
+      --positive: #15803d;
+      --positive-bg: #f0fdf4;
+      --positive-border: #bbf7d0;
+
+      --negative: #b91c1c;
+      --negative-bg: #fef2f2;
+      --negative-border: #fecaca;
+
+      --radius-sm: 4px;
+      --radius-md: 6px;
+      --radius-lg: 8px;
+
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+
+      --shadow-subtle: 0 1px 2px rgba(0, 0, 0, 0.04);
+      --shadow-popover: 0 4px 12px rgba(0, 0, 0, 0.08);
     }
-    ::-webkit-scrollbar { display: none; }
-    .no-scrollbar::-webkit-scrollbar { display: none; }
-    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    
-    /* Animation transitions between views */
-    .view-transition {
-      transition: opacity 0.22s ease-in-out, transform 0.22s ease-in-out;
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
     }
-    .view-hidden {
-      display: none !important;
+
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      font-size: 13.5px;
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+    }
+
+    /* Desktop Sidebar */
+    aside.sidebar {
+      width: 250px;
+      background-color: var(--bg-surface);
+      border-right: 1px solid var(--border-subtle);
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      height: 100vh;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .brand-header {
+      padding: 18px 20px 16px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-logo {
+      width: 24px;
+      height: 24px;
+      background: var(--text-main);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: -0.5px;
+    }
+
+    .brand-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-main);
+      letter-spacing: -0.2px;
+    }
+
+    .brand-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-left: auto;
+      background: var(--bg-subtle);
+      padding: 2px 6px;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-weight: 500;
+    }
+
+    .sidebar-section {
+      padding: 16px 12px 8px;
+    }
+
+    .sidebar-label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      padding: 0 8px 6px;
+    }
+
+    .nav-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 10px;
+      background: transparent;
+      border: 1px solid transparent;
+      border-radius: var(--radius-md);
+      color: var(--text-secondary);
+      font-size: 13px;
+      font-weight: 500;
+      text-align: left;
+      cursor: pointer;
+      transition: background 0.12s ease, color 0.12s ease;
+      font-family: var(--font-sans);
+    }
+
+    .nav-btn:hover {
+      background: var(--bg-subtle);
+      color: var(--text-main);
+    }
+
+    .nav-btn.active {
+      background: var(--bg-subtle);
+      color: var(--text-main);
+      font-weight: 600;
+      border-color: var(--border-subtle);
+    }
+
+    .nav-btn svg {
+      width: 16px;
+      height: 16px;
+      stroke-width: 1.8;
+      color: currentColor;
+    }
+
+    .groups-list {
+      flex: 1;
+      overflow-y: auto;
+      padding: 8px 12px;
+    }
+
+    .group-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 7px 10px;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-bottom: 2px;
+    }
+
+    .group-item:hover {
+      background: var(--bg-subtle);
+      color: var(--text-main);
+    }
+
+    .group-item.active {
+      background: var(--accent-subtle);
+      color: var(--accent);
+      font-weight: 600;
+      border: 1px solid var(--accent-border);
+    }
+
+    /* Sidebar Footer & Active User Switcher */
+    .sidebar-footer {
+      padding: 12px 14px;
+      border-top: 1px solid var(--border-subtle);
+      background: var(--bg-surface);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .user-profile-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      padding: 4px 6px;
+      border-radius: var(--radius-md);
+      transition: background 0.12s ease;
+    }
+
+    .user-profile-row:hover {
+      background: var(--bg-subtle);
+    }
+
+    .user-profile {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      min-width: 0;
+    }
+
+    .avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-muted);
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      flex-shrink: 0;
+    }
+
+    .user-meta-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-main);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .user-meta-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .user-actions-btns {
+      display: flex;
+      gap: 6px;
+    }
+
+    /* Main Content Canvas */
+    main.content {
+      flex: 1;
+      max-width: 1040px;
+      padding: 32px 40px 80px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* Top Group Header */
+    .group-header {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 20px 24px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .group-header-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .group-title-row {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .group-name {
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+      color: var(--text-main);
+    }
+
+    .group-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text-muted);
+      font-size: 12.5px;
+    }
+
+    .group-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 7px 12px;
+      font-size: 13px;
+      font-weight: 500;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      font-family: var(--font-sans);
+      transition: all 0.12s ease;
+      white-space: nowrap;
+      text-decoration: none;
+    }
+
+    .btn svg {
+      width: 15px;
+      height: 15px;
+    }
+
+    .btn-default {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-muted);
+      color: var(--text-main);
+    }
+
+    .btn-default:hover {
+      background: var(--bg-subtle);
+      border-color: var(--text-secondary);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      border: 1px solid var(--accent-hover);
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+    }
+
+    .btn-sm {
+      padding: 5px 9px;
+      font-size: 12px;
+    }
+
+    /* Restrained Balance Summary */
+    .balance-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .metric-card {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .metric-label {
+      font-size: 11.5px;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .metric-value {
+      font-family: var(--font-mono);
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: -0.2px;
+      color: var(--text-main);
+    }
+
+    .metric-value.owed-to-you {
+      color: var(--positive);
+    }
+
+    .metric-value.you-owe {
+      color: var(--negative);
+    }
+
+    /* Sub Tabs / Screen switcher */
+    .screen-tabs {
+      display: flex;
+      gap: 2px;
+      background: var(--bg-subtle);
+      padding: 3px;
+      border-radius: var(--radius-md);
+      margin-bottom: 20px;
+      width: fit-content;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .screen-tab {
+      padding: 6px 14px;
+      font-size: 12.5px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      background: transparent;
+      border: none;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: all 0.12s ease;
+    }
+
+    .screen-tab.active {
+      background: var(--bg-surface);
+      color: var(--text-main);
+      font-weight: 600;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    /* Section Headers */
+    .section-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .count-badge {
+      font-size: 11px;
+      font-family: var(--font-mono);
+      font-weight: 500;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-subtle);
+      padding: 1px 6px;
+      border-radius: var(--radius-sm);
+      color: var(--text-secondary);
+    }
+
+    /* Ledger Styled Expense Table */
+    .ledger-table-wrap {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .ledger-row {
+      display: grid;
+      grid-template-columns: 88px 74px 1fr 130px 110px 110px;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--border-subtle);
+      transition: background 0.1s ease;
+    }
+
+    .ledger-row:last-child {
+      border-bottom: none;
+    }
+
+    .ledger-row:hover {
+      background: #faf9f6;
+    }
+
+    .ledger-head {
+      background: var(--bg-subtle);
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-muted);
+      padding: 8px 16px;
+    }
+
+    .ledger-head .ledger-row:hover {
+      background: transparent;
+    }
+
+    .ledger-date {
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .cat-tag {
+      display: inline-block;
+      font-size: 10.5px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--text-secondary);
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-subtle);
+      padding: 2px 6px;
+      border-radius: var(--radius-sm);
+      text-align: center;
+    }
+
+    .ledger-desc-col {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 0;
+    }
+
+    .ledger-desc-title {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-main);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .ledger-desc-sub {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .ledger-payer {
+      font-size: 12.5px;
+      color: var(--text-secondary);
+    }
+
+    .ledger-total {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 500;
+      text-align: right;
+      color: var(--text-main);
+    }
+
+    .ledger-user-impact {
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      font-weight: 600;
+      text-align: right;
+    }
+
+    .ledger-user-impact.lent {
+      color: var(--positive);
+    }
+
+    .ledger-user-impact.borrowed {
+      color: var(--negative);
+    }
+
+    .ledger-user-impact.neutral {
+      color: var(--text-muted);
+    }
+
+    .badge-settlement {
+      display: inline-flex;
+      align-items: center;
+      font-size: 10.5px;
+      font-weight: 500;
+      color: var(--accent);
+      background: var(--accent-subtle);
+      border: 1px solid var(--accent-border);
+      padding: 1px 5px;
+      border-radius: var(--radius-sm);
+      margin-left: 6px;
+    }
+
+    /* Simplified Debt / Settlements Section */
+    .settlement-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-subtle);
+      margin-bottom: 20px;
+    }
+
+    .settlement-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 13px 18px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .settlement-row:last-child {
+      border-bottom: none;
+    }
+
+    .settlement-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .debt-arrow {
+      color: var(--text-muted);
+      font-size: 11.5px;
+      margin: 0 4px;
+    }
+
+    .debt-actor {
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .debt-amount {
+      font-family: var(--font-mono);
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    /* Members Grid / Directory */
+    .members-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .member-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 15px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .member-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .member-name-block {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .member-name {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .member-badge-you {
+      font-size: 10.5px;
+      padding: 1px 5px;
+      border-radius: var(--radius-sm);
+      background: var(--accent-subtle);
+      color: var(--accent);
+      font-weight: 600;
+      border: 1px solid var(--accent-border);
+      margin-left: 4px;
+    }
+
+    .member-stat-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding-top: 9px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .member-net-label {
+      font-size: 11.5px;
+      color: var(--text-muted);
+    }
+
+    .member-net-val {
+      font-family: var(--font-mono);
+      font-weight: 600;
+      font-size: 13.5px;
+    }
+
+    /* Restrained Empty State */
+    .empty-state {
+      padding: 44px 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--bg-surface);
+      border: 1px dashed var(--border-muted);
+      border-radius: var(--radius-md);
+    }
+
+    .empty-title {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .empty-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      max-width: 320px;
+      line-height: 1.4;
+    }
+
+    /* Modals - Precision FinTech Dialogs */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(24, 24, 27, 0.4);
+      backdrop-filter: blur(2px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
       opacity: 0;
-      transform: translateY(8px);
+      pointer-events: none;
+      transition: opacity 0.12s ease;
+      padding: 16px;
+    }
+
+    .modal-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-muted);
+      border-radius: var(--radius-lg);
+      width: 100%;
+      max-width: 440px;
+      box-shadow: var(--shadow-popover);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transform: translateY(6px);
+      transition: transform 0.12s ease;
+    }
+
+    .modal-overlay.open .modal-box {
+      transform: translateY(0);
+    }
+
+    .modal-header {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .modal-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .modal-close {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
+      font-size: 14px;
+      border-radius: var(--radius-sm);
+    }
+
+    .modal-close:hover {
+      background: var(--bg-subtle);
+      color: var(--text-main);
+    }
+
+    .modal-body {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      max-height: 75vh;
+      overflow-y: auto;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .form-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
+    .input-row {
+      display: flex;
+      gap: 8px;
+    }
+
+    .form-input, .form-select {
+      width: 100%;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-muted);
+      border-radius: var(--radius-md);
+      padding: 7px 9px;
+      font-size: 13px;
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      outline: none;
+      transition: border-color 0.12s ease;
+    }
+
+    .form-input:focus, .form-select:focus {
+      border-color: var(--border-focus);
+    }
+
+    .rupee-input-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .rupee-symbol {
+      position: absolute;
+      left: 10px;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-muted);
+      font-family: var(--font-sans);
+      pointer-events: none;
+    }
+
+    .rupee-input {
+      padding-left: 26px;
+      font-family: var(--font-mono);
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+    }
+
+    .participants-list {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 7px 10px;
+      max-height: 140px;
+      overflow-y: auto;
+    }
+
+    .participant-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12.5px;
+    }
+
+    .participant-checkbox {
+      accent-color: var(--accent);
+      cursor: pointer;
+    }
+
+    .modal-footer {
+      padding: 12px 18px;
+      border-top: 1px solid var(--border-subtle);
+      background: var(--bg-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    /* Switch User Selection List */
+    .user-select-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .user-select-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 12px;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      background: var(--bg-surface);
+      transition: all 0.1s ease;
+    }
+
+    .user-select-card:hover {
+      background: var(--bg-subtle);
+      border-color: var(--border-muted);
+    }
+
+    .user-select-card.active {
+      border-color: var(--accent-border);
+      background: var(--accent-subtle);
+    }
+
+    /* Mobile Bottom Navigation */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 52px;
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border-subtle);
+      z-index: 50;
+      padding: 0 8px;
+      align-items: center;
+      justify-content: space-around;
+    }
+
+    .mobile-tab-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 10.5px;
+      font-weight: 500;
+      padding: 5px 12px;
+      cursor: pointer;
+    }
+
+    .mobile-tab-btn.active {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    .mobile-tab-btn svg {
+      width: 17px;
+      height: 17px;
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 820px) {
+      aside.sidebar {
+        display: none;
+      }
+
+      body {
+        flex-direction: column;
+        padding-bottom: 60px;
+      }
+
+      main.content {
+        padding: 16px 16px 70px;
+      }
+
+      .mobile-nav {
+        display: flex;
+      }
+
+      .balance-strip {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      .ledger-row {
+        grid-template-columns: 1fr 90px;
+      }
+
+      .ledger-head, .ledger-date, .ledger-payer, .cat-tag {
+        display: none;
+      }
+
+      .group-header-top {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .group-actions {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .group-actions .btn {
+        flex: 1;
+      }
     }
   </style>
 </head>
+<body>
 
-<body class="bg-surface font-body-md text-on-surface min-h-screen flex flex-col antialiased selection:bg-primary-container selection:text-on-primary">
-
-  <!-- Main Responsive Wrapper (Centers nicely on desktop, native app feel on mobile) -->
-  <div class="w-full max-w-md mx-auto min-h-screen flex flex-col bg-surface shadow-2xl relative">
-
-    <!-- ========================================================================= -->
-    <!-- SCREEN 1: GROUP DETAIL (HOME PAGE GUI - STARTING AT 0)                     -->
-    <!-- ========================================================================= -->
-    <div id="screen-group-detail" class="view-transition flex flex-col min-h-screen w-full">
-      
-      <!-- Top Sticky App Bar -->
-      <header class="fixed top-0 max-w-md w-full z-40 bg-surface/85 backdrop-blur-xl pt-safe shadow-[0_1px_12px_rgba(19,27,46,0.04)]">
-        <div class="h-16 px-margin flex items-center justify-between">
-          <div class="flex items-center gap-space-sm">
-            <button id="btn-group-selector" aria-label="Switch Group" class="min-w-[40px] min-h-[40px] flex items-center justify-center rounded-full text-on-surface hover:bg-surface-container active:scale-95 transition-all -ml-2" type="button" title="Switch Group">
-              <span class="material-symbols-outlined text-[24px]">groups</span>
-            </button>
-            <img alt="Splitwise Logo" class="h-7 w-auto object-contain cursor-pointer" onclick="switchView('group-detail')" src="https://lh3.googleusercontent.com/aida/AEtjO1XuIayXBcHLcPxi95WopufQmp8Wua3gzVxDs3jdW-xVDITMV4-Bvn1pKt0gEOShzPFeHFwCIFQ4MPY_ZrN8DCQQ5D9rMLwIXykVF4pzwhVaKaXJrP7MXoRskTM4eYlrTsvQU8HoCm-QccKtwSzPKYHYluPjFZi6hflSLdskDI_pc4b4UZP-pbIHQWd4aA9Me0B1BhgOKOch25cPNAhgxeu6UOKXw7ejfLbg13WchRmrysWn8mts31lp"/>
-            <div class="flex flex-col min-w-0">
-              <h1 class="font-headline-md text-headline-md tracking-tight text-on-surface truncate max-w-[150px]" id="header-group-title">Goa Trip 🏖️</h1>
-              <span class="text-[10px] text-on-surface-variant font-medium leading-none" id="header-live-date">Oct 24, 2026</span>
-            </div>
-          </div>
-          
-          <div class="flex items-center gap-1">
-            <!-- Reset to 0 button in header -->
-            <button id="btn-quick-reset" class="px-2 py-1 rounded-full bg-surface-container text-xs font-semibold text-outline hover:text-error hover:bg-red-50 transition-all flex items-center gap-1" title="Reset all expenses and balances back to ₹0.00" type="button">
-              <span class="material-symbols-outlined text-[14px]">restart_alt</span>
-              <span>Reset 0</span>
-            </button>
-
-            <!-- Backend Status Indicator -->
-            <div id="backend-status-pill" class="flex items-center gap-1 text-[11px] font-semibold px-2 py-0.5 rounded-full bg-primary/10 text-primary cursor-pointer" title="Connected to Java Splitwise Backend">
-              <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-              <span id="backend-label">Live</span>
-            </div>
-            
-            <button id="btn-menu-options" aria-label="More options" class="min-w-[36px] min-h-[36px] flex items-center justify-center rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container active:scale-95 transition-all" type="button">
-              <span class="material-symbols-outlined text-[20px]">more_vert</span>
-            </button>
-            <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-0.5 shadow-sm text-on-primary font-bold text-xs">
-              <span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      <!-- Main Content Container -->
-      <main class="flex-1 w-full pt-16 pb-safe bg-surface">
-        <div class="flex flex-col w-full pb-28">
-          
-          <!-- Top Group Cover & Status Header -->
-          <div class="px-margin pt-4 pb-2">
-            <!-- Group Hero Card -->
-            <div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm relative overflow-hidden border border-surface-container/60">
-              <!-- Decorative Backdrop Glow -->
-              <div class="absolute -right-8 -top-8 w-32 h-32 bg-primary-container/10 rounded-full blur-2xl pointer-events-none"></div>
-              
-              <div class="flex items-start justify-between relative z-10">
-                <div class="flex items-center gap-3">
-                  <div class="w-14 h-14 rounded-xl bg-primary-fixed/40 flex items-center justify-center text-primary shadow-sm shrink-0">
-                    <span class="material-symbols-outlined text-[32px]" style="font-variation-settings: 'FILL' 1;">beach_access</span>
-                  </div>
-                  <div>
-                    <div class="flex items-center gap-1.5">
-                      <h2 class="font-headline-md text-headline-md text-on-surface" id="hero-group-name">Goa Trip 🏖️</h2>
-                    </div>
-                    <p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5" id="hero-group-members">4 members: Rahul, Priya, Amit, You</p>
-                  </div>
-                </div>
-                
-                <button id="btn-group-settings" aria-label="Group settings" class="w-9 h-9 rounded-full bg-surface-container-low flex items-center justify-center text-on-surface-variant hover:text-on-surface active:scale-95 transition-transform" type="button" title="Group settings">
-                  <span class="material-symbols-outlined text-[20px]">settings</span>
-                </button>
-              </div>
-
-              <!-- Net Balance Highlight Banner (All 0 by default) -->
-              <div class="mt-4 p-3 bg-surface-container-low rounded-lg flex items-center justify-between" id="net-balance-banner">
-                <div class="flex items-center gap-2.5">
-                  <div class="w-7 h-7 rounded-full bg-primary-container/20 flex items-center justify-center text-primary" id="net-balance-icon-wrap">
-                    <span class="material-symbols-outlined text-[16px]" id="net-balance-icon">check_circle</span>
-                  </div>
-                  <div>
-                    <span class="font-label-sm text-label-sm uppercase text-on-surface-variant block tracking-wider">Overall balance</span>
-                    <p class="font-body-md text-body-md text-on-surface" id="net-balance-text">
-                      You are all settled up • <span class="font-headline-sm text-headline-sm text-primary" id="net-balance-amount">₹0.00</span>
-                    </p>
-                  </div>
-                </div>
-                <span class="font-label-sm text-label-sm bg-primary-fixed text-on-primary-fixed px-2 py-0.5 rounded-full font-bold uppercase tracking-wider" id="net-balance-badge">Settled</span>
-              </div>
-
-              <!-- Mini 3-Stat Metric Row (Spend, Lent, Borrowed) -->
-              <div class="grid grid-cols-3 gap-2 mt-3 text-center">
-                <div class="p-2 rounded-lg bg-surface-container/60 flex flex-col">
-                  <span class="text-[10px] uppercase font-bold text-outline">Group Spend</span>
-                  <span class="font-headline-sm text-[13px] font-bold text-on-surface mt-0.5" id="stat-group-spend">₹0.00</span>
-                </div>
-                <div class="p-2 rounded-lg bg-surface-container/60 flex flex-col">
-                  <span class="text-[10px] uppercase font-bold text-outline">You Lent</span>
-                  <span class="font-headline-sm text-[13px] font-bold text-primary mt-0.5" id="stat-you-lent">₹0.00</span>
-                </div>
-                <div class="p-2 rounded-lg bg-surface-container/60 flex flex-col">
-                  <span class="text-[10px] uppercase font-bold text-outline">You Borrowed</span>
-                  <span class="font-headline-sm text-[13px] font-bold text-secondary mt-0.5" id="stat-you-borrowed">₹0.00</span>
-                </div>
-              </div>
-
-              <!-- Action Buttons Row -->
-              <div class="grid grid-cols-2 gap-space-sm mt-3.5">
-                <button id="btn-add-expense-hero" class="w-full h-11 bg-primary-container hover:bg-primary active:scale-[0.98] transition-all rounded-lg flex items-center justify-center gap-2 text-on-primary shadow-sm" type="button">
-                  <span class="material-symbols-outlined text-[20px]">add_circle</span>
-                  <span class="font-label-lg text-label-lg">+ Add expense</span>
-                </button>
-                
-                <button id="btn-view-balances-hero" class="w-full h-11 bg-surface-container hover:bg-surface-container-high active:scale-[0.98] transition-all rounded-lg flex items-center justify-center gap-1.5 text-on-surface shadow-sm" type="button">
-                  <span class="material-symbols-outlined text-[19px] text-on-surface-variant">account_balance_wallet</span>
-                  <span class="font-label-lg text-label-lg">Balances (₹0)</span>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Member Net Status Pill Carousel -->
-          <div class="mt-2">
-            <div class="px-margin flex items-center justify-between mb-2">
-              <span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant">Individual Balances</span>
-              <span class="font-label-sm text-label-sm text-primary font-semibold" id="active-members-count">0 of 4 active</span>
-            </div>
-            
-            <div class="flex items-center gap-2.5 overflow-x-auto px-margin no-scrollbar py-0.5" id="member-balance-carousel">
-              <!-- Dynamically populated member cards -->
-            </div>
-          </div>
-
-          <!-- Expenses Timeline Stream (Clean Zero State) -->
-          <div class="px-margin mt-5">
-            <!-- Dynamic Month Header -->
-            <div class="flex items-center justify-between mb-3">
-              <div class="flex items-center gap-2">
-                <span class="w-2 h-2 rounded-full bg-primary-container"></span>
-                <h3 class="font-label-sm text-label-sm tracking-widest uppercase text-on-surface-variant font-extrabold" id="timeline-month-label">OCTOBER 2026</h3>
-              </div>
-              <span class="font-label-sm text-label-sm text-on-surface-variant font-medium" id="transactions-count-label">0 transactions</span>
-            </div>
-
-            <!-- Expense Feed Container -->
-            <div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col border border-surface-container/60" id="expenses-feed-container">
-              <!-- Dynamically populated empty state or expense list items -->
-            </div>
-          </div>
-
-          <!-- Group Summary Visual Delight Card -->
-          <div class="px-margin mt-4">
-            <div id="btn-spending-breakdown" class="bg-gradient-to-r from-primary-fixed-dim/25 to-surface-container-low p-4 rounded-xl flex items-center justify-between cursor-pointer hover:shadow-md transition-all active:scale-[0.99] border border-primary-container/20">
-              <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary shadow-sm shrink-0">
-                  <span class="material-symbols-outlined text-[22px]">bar_chart</span>
-                </div>
-                <div>
-                  <h4 class="font-headline-sm text-headline-sm text-on-surface">Trip Spending Breakdown</h4>
-                  <p class="font-body-sm text-body-sm text-on-surface-variant" id="total-group-spend-text">Total group spend: ₹0.00 • 0 expenses</p>
-                </div>
-              </div>
-              <button aria-label="View charts" class="w-8 h-8 rounded-full bg-surface-container-lowest flex items-center justify-center text-on-surface hover:text-primary transition-colors shadow-sm" type="button">
-                <span class="material-symbols-outlined text-[18px]">chevron_right</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Floating Sticky Action Button (Splitwise Teal FAB) -->
-          <div class="fixed bottom-6 right-6 z-40 max-w-md">
-            <button id="btn-fab-add-expense" class="h-14 px-5 bg-primary-container text-on-primary rounded-full shadow-[0_8px_24px_rgba(28,194,159,0.38)] hover:bg-primary active:scale-95 transition-all flex items-center gap-2.5 font-label-lg text-label-lg tracking-wide hover:shadow-lg" type="button">
-              <span class="material-symbols-outlined text-[22px]">add</span>
-              <span>Add expense</span>
-            </button>
-          </div>
-
-        </div>
-      </main>
+  <!-- Left Sidebar (Desktop Navigation) -->
+  <aside class="sidebar">
+    <div class="brand-header">
+      <div class="brand-logo">₹</div>
+      <div class="brand-title">Splitwise</div>
+      <div class="brand-sub">INR</div>
     </div>
 
-
-    <!-- ========================================================================= -->
-    <!-- SCREEN 2: ADD EXPENSE SCREEN                                              -->
-    <!-- ========================================================================= -->
-    <div id="screen-add-expense" class="view-transition view-hidden flex flex-col min-h-screen w-full">
-      
-      <!-- Top App Bar with Splitwise Logo -->
-      <header class="fixed top-0 max-w-md w-full z-40 bg-surface/85 backdrop-blur-xl pt-safe shadow-[0_1px_12px_rgba(19,27,46,0.04)]">
-        <div class="h-16 px-margin flex items-center justify-between">
-          <div class="flex items-center gap-space-sm">
-            <button id="btn-back-from-add" aria-label="Go back" class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full text-on-surface hover:bg-surface-container active:scale-95 transition-all -ml-2" type="button">
-              <span class="material-symbols-outlined text-[24px]">arrow_back</span>
-            </button>
-            <img alt="Splitwise Logo" class="h-7 w-auto object-contain cursor-pointer" onclick="switchView('group-detail')" src="https://lh3.googleusercontent.com/aida/AEtjO1XuIayXBcHLcPxi95WopufQmp8Wua3gzVxDs3jdW-xVDITMV4-Bvn1pKt0gEOShzPFeHFwCIFQ4MPY_ZrN8DCQQ5D9rMLwIXykVF4pzwhVaKaXJrP7MXoRskTM4eYlrTsvQU8HoCm-QccKtwSzPKYHYluPjFZi6hflSLdskDI_pc4b4UZP-pbIHQWd4aA9Me0B1BhgOKOch25cPNAhgxeu6UOKXw7ejfLbg13WchRmrysWn8mts31lp"/>
-            <h1 class="font-headline-md text-headline-md tracking-tight text-on-surface truncate max-w-[180px]">Add Expense</h1>
-          </div>
-          
-          <div class="flex items-center gap-space-xs">
-            <button aria-label="More options" class="min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container active:scale-95 transition-all" type="button">
-              <span class="material-symbols-outlined text-[22px]">more_vert</span>
-            </button>
-            <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center ml-1 shadow-sm text-on-primary font-bold text-xs">
-              <span class="material-symbols-outlined text-on-primary text-[18px]">person</span>
-            </div>
-          </div>
-        </div>
-      </header>
-
-      <!-- Main Form Body -->
-      <main class="flex-1 w-full pt-16 pb-safe bg-surface">
-        <div class="flex flex-col w-full">
-          
-          <!-- Top Action Modal Bar -->
-          <div class="px-margin py-space-sm bg-surface-container-lowest flex items-center justify-between shadow-sm sticky top-16 z-30 border-b border-surface-container/60">
-            <div class="flex items-center gap-space-sm">
-              <button id="btn-close-add-modal" class="w-10 h-10 flex items-center justify-center rounded-full text-on-surface hover:bg-surface-container active:scale-95 transition-all" type="button">
-                <span class="material-symbols-outlined text-[22px]">close</span>
-              </button>
-              <span class="font-headline-sm text-headline-sm text-on-surface">Add expense</span>
-            </div>
-            <button id="save-expense-top-btn" class="px-4 py-2 rounded-full bg-primary-container text-on-primary-container font-label-lg text-label-lg shadow-sm hover:opacity-95 active:scale-95 transition-all flex items-center gap-1.5" type="button">
-              <span class="material-symbols-outlined text-[18px]">check</span>
-              <span>Save</span>
-            </button>
-          </div>
-
-          <div class="p-margin flex flex-col gap-space-md">
-            
-            <!-- Participant & Group Context Pills -->
-            <div class="flex flex-col gap-space-xs">
-              <label class="font-label-md text-label-md text-on-surface-variant flex items-center gap-1">
-                <span>With you and:</span>
-              </label>
-              <div class="flex items-center gap-2 overflow-x-auto py-1 no-scrollbar" id="add-expense-participants-tray">
-                <!-- Group Pill -->
-                <button class="flex-shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary-container text-on-primary-container font-label-md text-label-md shadow-sm active:scale-95 transition-all" type="button">
-                  <span class="material-symbols-outlined text-[16px]">group</span>
-                  <span id="form-group-pill-name">Goa Trip 🏖️</span>
-                  <span class="material-symbols-outlined text-[16px]">check_circle</span>
-                </button>
-
-                <!-- Participant Chips will be dynamically populated -->
-                <div id="form-participants-chips" class="flex items-center gap-2"></div>
-
-                <!-- Add Person Trigger -->
-                <button id="btn-add-person-chip" class="flex-shrink-0 flex items-center gap-1 px-3 py-1.5 rounded-full bg-surface-container text-primary font-label-md text-label-md active:scale-95 transition-all hover:bg-surface-container-highest" type="button">
-                  <span class="material-symbols-outlined text-[16px]">person_add</span>
-                  <span>Add</span>
-                </button>
-              </div>
-            </div>
-
-            <!-- Main Expense Input Card -->
-            <div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-md border border-surface-container/60">
-              
-              <!-- Title & Category Selector -->
-              <div class="flex items-center gap-space-sm">
-                <button id="btn-category-selector" class="w-12 h-12 rounded-xl bg-primary-container/20 text-primary flex items-center justify-center flex-shrink-0 active:scale-90 transition-all hover:bg-primary-container/30" title="Change category" type="button">
-                  <span class="material-symbols-outlined text-[26px]" id="current-category-icon">restaurant</span>
-                </button>
-                <div class="flex-1 flex flex-col justify-center">
-                  <input id="input-expense-desc" class="w-full bg-transparent font-headline-md text-headline-md text-on-surface placeholder:text-outline outline-none" placeholder="Enter a description (e.g. Lunch)" type="text" value=""/>
-                  <span class="font-body-sm text-body-sm text-on-surface-variant" id="current-category-label">Category: Food &amp; Drink • Dining</span>
-                </div>
-              </div>
-
-              <!-- Giant Rupee Amount Input -->
-              <div class="bg-surface-container-low rounded-xl p-space-md flex flex-col items-center justify-center">
-                <span class="font-label-sm text-label-sm uppercase tracking-wider text-outline mb-1">Total Amount</span>
-                <div class="flex items-baseline justify-center gap-1 text-on-surface">
-                  <span class="font-currency-display-mobile text-currency-display-mobile text-primary font-black">₹</span>
-                  <input id="input-expense-amount" class="font-currency-display text-currency-display text-center bg-transparent max-w-[220px] text-on-surface outline-none font-extrabold tracking-tight" inputmode="decimal" placeholder="0.00" type="text" value=""/>
-                </div>
-              </div>
-
-              <!-- Payer & Split Logic Configuration Tray -->
-              <div class="bg-surface-container-high rounded-xl p-space-sm flex flex-col gap-2">
-                <div class="flex items-center justify-between px-2 py-1">
-                  <div class="flex items-center gap-2">
-                    <span class="font-body-md text-body-md text-on-surface-variant">Paid by</span>
-                    <div class="relative">
-                      <select id="select-payer" class="appearance-none px-3 py-1 pr-6 rounded-full bg-surface-container-lowest text-primary font-label-lg text-label-lg shadow-sm cursor-pointer outline-none active:scale-95 transition-all">
-                        <!-- Populated by JS -->
-                      </select>
-                      <span class="material-symbols-outlined text-[16px] text-primary absolute right-1.5 top-1.5 pointer-events-none">arrow_drop_down</span>
-                    </div>
-                  </div>
-                  
-                  <div class="flex items-center gap-2">
-                    <span class="font-body-md text-body-md text-on-surface-variant">and split</span>
-                    <button id="btn-split-summary-badge" class="px-3 py-1 rounded-full bg-surface-container-lowest text-primary font-label-lg text-label-lg shadow-sm flex items-center gap-1 active:scale-95 transition-all" type="button">
-                      <span id="label-split-mode-text">equally</span>
-                      <span class="material-symbols-outlined text-[16px]">arrow_drop_down</span>
-                    </button>
-                  </div>
-                </div>
-
-                <!-- Helper Calculated Split Subtext -->
-                <div class="bg-primary-container/15 rounded-lg px-3 py-2 flex items-center justify-between">
-                  <div class="flex items-center gap-1.5 text-on-primary-container">
-                    <span class="material-symbols-outlined text-[18px]">calculate</span>
-                    <span class="font-label-md text-label-md" id="calculated-split-per-person">₹0.00 / person</span>
-                  </div>
-                  <span class="font-body-sm text-body-sm text-on-surface-variant" id="calculated-split-count">across 4 people</span>
-                </div>
-              </div>
-
-            </div>
-
-            <!-- Split Mode Strategy Chips -->
-            <div class="flex flex-col gap-space-xs">
-              <span class="font-label-sm text-label-sm uppercase text-outline">Split Mode</span>
-              <div class="grid grid-cols-2 gap-2" id="split-mode-buttons-container">
-                <button data-mode="EQUAL" class="split-mode-btn py-2.5 px-3 rounded-xl bg-primary text-on-primary font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-sm transition-all" type="button">
-                  <span class="material-symbols-outlined text-[18px]">equal</span>
-                  <span>Equally (=)</span>
-                </button>
-                <button data-mode="EXACT" class="split-mode-btn py-2.5 px-3 rounded-xl bg-surface-container-lowest text-on-surface font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-sm hover:bg-surface-container transition-all" type="button">
-                  <span class="font-bold">₹</span>
-                  <span>Unequally</span>
-                </button>
-                <button data-mode="PERCENT" class="split-mode-btn py-2.5 px-3 rounded-xl bg-surface-container-lowest text-on-surface font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-sm hover:bg-surface-container transition-all" type="button">
-                  <span class="material-symbols-outlined text-[18px]">percent</span>
-                  <span>Percentages (%)</span>
-                </button>
-                <button data-mode="SHARES" class="split-mode-btn py-2.5 px-3 rounded-xl bg-surface-container-lowest text-on-surface font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-sm hover:bg-surface-container transition-all" type="button">
-                  <span class="material-symbols-outlined text-[18px]">pie_chart</span>
-                  <span>By Shares</span>
-                </button>
-              </div>
-
-              <!-- Custom Split Interactive Container (Appears when split mode requires custom inputs) -->
-              <div id="custom-split-container" class="hidden mt-2 p-3 bg-surface-container-lowest rounded-xl border border-surface-container/60 shadow-sm flex flex-col gap-2">
-                <div class="flex items-center justify-between text-xs text-on-surface-variant font-semibold">
-                  <span id="custom-split-heading">Custom Breakdown</span>
-                  <span id="custom-split-status-pill" class="text-primary font-bold">100% matched</span>
-                </div>
-                <div id="custom-split-rows" class="flex flex-col gap-2 mt-1">
-                  <!-- Custom per-member input rows -->
-                </div>
-              </div>
-            </div>
-
-            <!-- Bill Receipt & Details Section -->
-            <div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm border border-surface-container/60">
-              <span class="font-headline-sm text-headline-sm text-on-surface">Expense Details</span>
-              
-              <!-- Date Row -->
-              <div class="flex items-center justify-between py-2">
-                <div class="flex items-center gap-2.5 text-on-surface-variant">
-                  <span class="material-symbols-outlined text-[20px] text-primary">calendar_today</span>
-                  <span class="font-body-md text-body-md text-on-surface">Date</span>
-                </div>
-                <div class="relative">
-                  <input id="input-expense-date-picker" type="date" class="opacity-0 absolute inset-0 cursor-pointer w-full"/>
-                  <button id="btn-date-display" class="px-3 py-1.5 rounded-lg bg-surface-container font-label-md text-label-md text-on-surface flex items-center gap-1 active:scale-95 pointer-events-none" type="button">
-                    <span id="label-expense-date">Today</span>
-                    <span class="material-symbols-outlined text-[16px] text-outline">edit</span>
-                  </button>
-                </div>
-              </div>
-
-              <!-- Notes / UPI Reference Input -->
-              <div class="flex items-center gap-2.5 px-3 py-2.5 bg-surface-container-low rounded-xl">
-                <span class="material-symbols-outlined text-[20px] text-outline">notes</span>
-                <input id="input-expense-notes" class="w-full bg-transparent text-on-surface font-body-md text-body-md outline-none placeholder:text-outline" placeholder="Add notes or UPI reference" type="text" value=""/>
-              </div>
-            </div>
-
-            <!-- Quick UPI Pay Confirmation Prompt -->
-            <div class="bg-surface-container-high rounded-xl p-space-md flex items-center justify-between">
-              <div class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold">
-                  <span class="material-symbols-outlined text-[22px]">account_balance_wallet</span>
-                </div>
-                <div class="flex flex-col">
-                  <span class="font-label-lg text-label-lg text-on-surface">Record via UPI</span>
-                  <span class="font-body-sm text-body-sm text-on-surface-variant">Others will be notified to settle up</span>
-                </div>
-              </div>
-              <div class="w-2.5 h-2.5 rounded-full bg-tertiary-container"></div>
-            </div>
-
-            <!-- Bottom Save Primary CTA Bar -->
-            <div class="pt-2 pb-6">
-              <button id="save-expense-bottom-btn" class="w-full py-3.5 rounded-xl bg-primary text-on-primary font-headline-sm text-headline-sm flex items-center justify-center gap-2 shadow-md active:scale-98 transition-all hover:opacity-95" type="button">
-                <span class="material-symbols-outlined text-[22px]">done_all</span>
-                <span id="save-button-label">Save Expense</span>
-              </button>
-            </div>
-
-          </div>
-        </div>
-      </main>
+    <div class="sidebar-section">
+      <div class="sidebar-label">Navigation</div>
+      <button class="nav-btn active" id="nav-btn-overview" onclick="switchView('overview')">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M3 14h18M5 6h14a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2z"/></svg>
+        Transaction Ledger
+      </button>
+      <button class="nav-btn" id="nav-btn-settlements" onclick="switchView('settlements')">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+        Simplified Debts
+      </button>
+      <button class="nav-btn" id="nav-btn-members" onclick="switchView('members')">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+        Members & Balances
+      </button>
     </div>
 
-    <!-- ========================================================================= -->
-    <!-- MODAL 1: SETTLE UP PAYMENT                                                -->
-    <!-- ========================================================================= -->
-    <div id="modal-settle-up" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-end justify-center hidden">
-      <div class="w-full max-w-md bg-surface-container-lowest rounded-t-2xl p-space-md flex flex-col gap-4 shadow-2xl animate-in slide-in-from-bottom duration-200">
-        <div class="flex items-center justify-between border-b border-surface-container pb-3">
-          <div class="flex items-center gap-2">
-            <span class="material-symbols-outlined text-primary text-[24px]">payments</span>
-            <h3 class="font-headline-md text-headline-md text-on-surface">Settle Up</h3>
+    <div class="sidebar-section" style="padding-top: 6px;">
+      <div class="sidebar-label" style="display: flex; justify-content: space-between; align-items: center;">
+        <span>Groups</span>
+        <button onclick="openNewGroupModal()" style="background:none; border:none; cursor:pointer; color:var(--text-muted); font-size:14px; line-height:1;" title="Create Group">+</button>
+      </div>
+      <div class="groups-list" id="groups-sidebar-list">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+
+    <!-- Active User & Switcher Footer -->
+    <div class="sidebar-footer">
+      <div class="user-profile-row" onclick="openSwitchUserModal()" title="Click to switch user perspective">
+        <div class="user-profile">
+          <div class="avatar" id="current-user-avatar">AD</div>
+          <div style="min-width:0;">
+            <div class="user-meta-name" id="current-user-name">Aditya</div>
+            <div class="user-meta-sub" id="current-user-label">Logged-in view</div>
           </div>
-          <button id="btn-close-settle-modal" class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-surface-container text-on-surface-variant">
-            <span class="material-symbols-outlined">close</span>
+        </div>
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width:14px; height:14px; color:var(--text-muted); flex-shrink:0;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4"/></svg>
+      </div>
+
+      <div class="user-actions-btns">
+        <button class="btn btn-default btn-sm" onclick="openSwitchUserModal()" style="flex:1;">
+          Switch User
+        </button>
+        <button class="btn btn-default btn-sm" onclick="openAddMemberModal()" title="Add new user to group">
+          + User
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Content Canvas -->
+  <main class="content">
+
+    <!-- Group Header Card -->
+    <div class="group-header">
+      <div class="group-header-top">
+        <div class="group-title-row">
+          <h1 class="group-name" id="display-group-name">Goa Trip</h1>
+          <div class="group-meta">
+            <span id="display-member-count">4 members</span>
+            <span>·</span>
+            <span id="display-expense-count">0 expenses</span>
+            <span>·</span>
+            <span id="display-last-active">Active</span>
+          </div>
+        </div>
+        <div class="group-actions">
+          <button class="btn btn-default" onclick="openSwitchUserModal()">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+            <span id="header-user-btn-label">Viewing as Aditya</span>
+          </button>
+          <button class="btn btn-default" onclick="openSettleModal()">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            Settle up
+          </button>
+          <button class="btn btn-primary" onclick="openAddExpenseModal()">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            Add expense
           </button>
         </div>
+      </div>
 
-        <div class="flex flex-col gap-3">
-          <div class="grid grid-cols-2 gap-3">
-            <div>
-              <label class="font-label-sm text-label-sm uppercase text-on-surface-variant block mb-1">Who paid?</label>
-              <select id="settle-from-select" class="w-full p-2.5 rounded-lg bg-surface-container-low text-on-surface font-body-md outline-none">
-                <!-- JS populated -->
-              </select>
+      <!-- Restrained Balance Summary -->
+      <div class="balance-strip">
+        <div class="metric-card">
+          <span class="metric-label">Total group spending</span>
+          <span class="metric-value" id="val-total-spend">₹0.00</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-label" id="label-net-balance">Your net position</span>
+          <span class="metric-value" id="val-net-balance">₹0.00</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-label" id="label-you-are-owed">You are owed</span>
+          <span class="metric-value owed-to-you" id="val-you-are-owed">₹0.00</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-label" id="label-you-owe">You owe</span>
+          <span class="metric-value you-owe" id="val-you-owe">₹0.00</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Screen Tabs (Desktop View Toggle) -->
+    <div class="screen-tabs">
+      <button class="screen-tab active" id="tab-overview" onclick="switchView('overview')">Transaction Ledger</button>
+      <button class="screen-tab" id="tab-settlements" onclick="switchView('settlements')">Simplified Debts</button>
+      <button class="screen-tab" id="tab-members" onclick="switchView('members')">Members & Net Balances</button>
+    </div>
+
+    <!-- VIEW 1: Expenses Ledger -->
+    <section id="view-overview">
+      <div class="section-head">
+        <div class="section-title">
+          Transaction History
+          <span class="count-badge" id="ledger-count-badge">0</span>
+        </div>
+        <div style="display: flex; gap: 8px;">
+          <input type="text" id="expense-search" placeholder="Search transactions..." oninput="filterLedger()" class="form-input" style="padding: 4px 8px; font-size: 12px; width: 170px;"/>
+        </div>
+      </div>
+
+      <div class="ledger-table-wrap">
+        <div class="ledger-head ledger-row">
+          <span>Date</span>
+          <span>Category</span>
+          <span>Description</span>
+          <span>Paid by</span>
+          <span style="text-align: right;">Amount</span>
+          <span style="text-align: right;" id="col-your-share-label">Your Share</span>
+        </div>
+        <div id="ledger-body">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+    </section>
+
+    <!-- VIEW 2: Simplified Settlements -->
+    <section id="view-settlements" style="display: none;">
+      <div class="section-head">
+        <div class="section-title">
+          Suggested Settlements
+          <span class="count-badge" id="settlement-count-badge">0</span>
+        </div>
+        <span style="font-size: 12px; color: var(--text-muted);">Greedy minimum cash-flow optimization</span>
+      </div>
+
+      <div class="settlement-card">
+        <div id="settlements-list">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+
+      <div style="background: var(--bg-subtle); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 12px 14px; font-size: 12px; color: var(--text-secondary); line-height: 1.45;">
+        Transactions are simplified by netting reciprocal debts between members into the smallest number of direct transfers.
+      </div>
+    </section>
+
+    <!-- VIEW 3: Group Members -->
+    <section id="view-members" style="display: none;">
+      <div class="section-head">
+        <div class="section-title">
+          Member Directory
+          <span class="count-badge" id="members-count-badge">0</span>
+        </div>
+        <button class="btn btn-default btn-sm" onclick="openAddMemberModal()">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"/></svg>
+          Add user
+        </button>
+      </div>
+
+      <div class="members-grid" id="members-grid">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Mobile Bottom Navigation -->
+  <nav class="mobile-nav">
+    <button class="mobile-tab-btn active" id="m-nav-overview" onclick="switchView('overview')">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+      <span>Ledger</span>
+    </button>
+    <button class="mobile-tab-btn" id="m-nav-settlements" onclick="switchView('settlements')">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/></svg>
+      <span>Debts</span>
+    </button>
+    <button class="mobile-tab-btn" id="m-nav-members" onclick="switchView('members')">
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+      <span>Members</span>
+    </button>
+  </nav>
+
+  <!-- MODAL 1: Add Expense -->
+  <div class="modal-overlay" id="modal-expense" onclick="closeModalOnBg(event, 'modal-expense')">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="modal-title">Record Expense</div>
+        <button class="modal-close" onclick="closeModal('modal-expense')">×</button>
+      </div>
+      <form id="expense-form" onsubmit="handleCreateExpense(event)">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label">Amount</label>
+            <div class="rupee-input-wrap">
+              <span class="rupee-symbol">₹</span>
+              <input type="number" step="0.01" min="0.01" id="exp-amount" class="form-input rupee-input" placeholder="0.00" required autofocus/>
             </div>
-            <div>
-              <label class="font-label-sm text-label-sm uppercase text-on-surface-variant block mb-1">To whom?</label>
-              <select id="settle-to-select" class="w-full p-2.5 rounded-lg bg-surface-container-low text-on-surface font-body-md outline-none">
-                <!-- JS populated -->
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Description</label>
+            <input type="text" id="exp-desc" class="form-input" placeholder="e.g. Lunch at Truffles, Zepto supplies, Airport cab" required/>
+          </div>
+
+          <div class="input-row">
+            <div class="form-group" style="flex: 1;">
+              <label class="form-label">Paid by</label>
+              <select id="exp-payer" class="form-select"></select>
+            </div>
+            <div class="form-group" style="flex: 1;">
+              <label class="form-label">Category</label>
+              <select id="exp-category" class="form-select">
+                <option value="food">Food & Dining</option>
+                <option value="groceries">Groceries</option>
+                <option value="transport">Transport</option>
+                <option value="rent">Rent</option>
+                <option value="bills">Utilities & Bills</option>
+                <option value="services">Services</option>
+                <option value="entertainment">Entertainment</option>
+                <option value="other">General</option>
               </select>
             </div>
           </div>
 
-          <div>
-            <label class="font-label-sm text-label-sm uppercase text-on-surface-variant block mb-1">Amount</label>
-            <div class="flex items-center gap-2 p-2.5 rounded-lg bg-surface-container-low">
-              <span class="font-bold text-primary text-lg">₹</span>
-              <input id="settle-amount-input" type="number" step="0.01" class="w-full bg-transparent font-headline-sm text-headline-sm outline-none" placeholder="0.00"/>
+          <div class="form-group">
+            <label class="form-label">Date</label>
+            <input type="date" id="exp-date" class="form-input"/>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Split Among</label>
+            <div class="participants-list" id="exp-participants">
+              <!-- Checkboxes dynamically added -->
             </div>
           </div>
 
-          <div>
-            <label class="font-label-sm text-label-sm uppercase text-on-surface-variant block mb-1">Payment Method</label>
-            <div class="grid grid-cols-4 gap-2 text-center text-xs">
-              <button type="button" class="settle-method-btn py-2 px-1 rounded-lg bg-primary-container text-on-primary-container font-semibold" data-method="GPay UPI">GPay UPI</button>
-              <button type="button" class="settle-method-btn py-2 px-1 rounded-lg bg-surface-container text-on-surface font-semibold" data-method="PhonePe">PhonePe</button>
-              <button type="button" class="settle-method-btn py-2 px-1 rounded-lg bg-surface-container text-on-surface font-semibold" data-method="Paytm">Paytm</button>
-              <button type="button" class="settle-method-btn py-2 px-1 rounded-lg bg-surface-container text-on-surface font-semibold" data-method="Cash">Cash</button>
-            </div>
+          <div class="form-group">
+            <label class="form-label">Notes (Optional)</label>
+            <input type="text" id="exp-notes" class="form-input" placeholder="e.g. Invoice #2938, Paid via UPI"/>
           </div>
         </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" onclick="closeModal('modal-expense')">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="btn-save-expense">Save Expense</button>
+        </div>
+      </form>
+    </div>
+  </div>
 
-        <button id="btn-submit-settlement" class="w-full py-3 rounded-xl bg-primary text-on-primary font-headline-sm text-headline-sm shadow-md active:scale-95 transition-all flex items-center justify-center gap-2 mt-2">
-          <span class="material-symbols-outlined text-[20px]">check_circle</span>
-          <span>Record Payment</span>
+  <!-- MODAL 2: Settle Up -->
+  <div class="modal-overlay" id="modal-settle" onclick="closeModalOnBg(event, 'modal-settle')">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="modal-title">Record Settlement</div>
+        <button class="modal-close" onclick="closeModal('modal-settle')">×</button>
+      </div>
+      <form id="settle-form" onsubmit="handleSettle(event)">
+        <div class="modal-body">
+          <div class="input-row">
+            <div class="form-group" style="flex: 1;">
+              <label class="form-label">From</label>
+              <select id="settle-from" class="form-select" onchange="updateSettleSuggestedAmount()"></select>
+            </div>
+            <div class="form-group" style="flex: 1;">
+              <label class="form-label">To</label>
+              <select id="settle-to" class="form-select" onchange="updateSettleSuggestedAmount()"></select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Amount</label>
+            <div class="rupee-input-wrap">
+              <span class="rupee-symbol">₹</span>
+              <input type="number" step="0.01" min="0.01" id="settle-amount" class="form-input rupee-input" placeholder="0.00" required/>
+            </div>
+          </div>
+
+          <div class="input-row">
+            <div class="form-group" style="flex: 1;">
+              <label class="form-label">Payment Mode</label>
+              <select id="settle-method" class="form-select">
+                <option value="UPI">UPI (GPay / PhonePe / Paytm)</option>
+                <option value="Bank Transfer">Bank Transfer (IMPS / NEFT)</option>
+                <option value="Cash">Cash</option>
+              </select>
+            </div>
+            <div class="form-group" style="flex: 1;">
+              <label class="form-label">Date</label>
+              <input type="date" id="settle-date" class="form-input"/>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Reference ID (Optional)</label>
+            <input type="text" id="settle-notes" class="form-input" placeholder="e.g. UTR / Transaction ID"/>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" onclick="closeModal('modal-settle')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Record Payment</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL 3: Add New User / Member -->
+  <div class="modal-overlay" id="modal-member" onclick="closeModalOnBg(event, 'modal-member')">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="modal-title">Add New User to Group</div>
+        <button class="modal-close" onclick="closeModal('modal-member')">×</button>
+      </div>
+      <form id="member-form" onsubmit="handleAddMember(event)">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label">Person's Name</label>
+            <input type="text" id="new-member-name" class="form-input" placeholder="e.g. Vikram, Divya, Ananya" required autofocus/>
+          </div>
+          <div class="form-group">
+            <label class="participant-row" style="font-size:12px; color:var(--text-secondary); cursor:pointer;">
+              <span>Immediately switch active user to this new person</span>
+              <input type="checkbox" id="switch-to-new-user-checkbox" checked class="participant-checkbox"/>
+            </label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" onclick="closeModal('modal-member')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Add User</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL 4: Switch Active User -->
+  <div class="modal-overlay" id="modal-switch-user" onclick="closeModalOnBg(event, 'modal-switch-user')">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="modal-title">Switch Active User Perspective</div>
+        <button class="modal-close" onclick="closeModal('modal-switch-user')">×</button>
+      </div>
+      <div class="modal-body">
+        <div style="font-size: 12px; color: var(--text-muted); line-height: 1.4;">
+          Choose whose perspective you want to view balances, ledger shares, and settlement suggestions from:
+        </div>
+        <div class="user-select-list" id="switch-user-options">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+      <div class="modal-footer" style="justify-content: space-between;">
+        <button type="button" class="btn btn-default btn-sm" onclick="closeModal('modal-switch-user'); openAddMemberModal();">
+          + Add New User
+        </button>
+        <button type="button" class="btn btn-default btn-sm" onclick="closeModal('modal-switch-user')">
+          Close
         </button>
       </div>
     </div>
+  </div>
 
-
-    <!-- ========================================================================= -->
-    <!-- MODAL 2: BALANCES & SIMPLIFIED DEBTS                                      -->
-    <!-- ========================================================================= -->
-    <div id="modal-balances" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-end justify-center hidden">
-      <div class="w-full max-w-md bg-surface-container-lowest rounded-t-2xl p-space-md flex flex-col gap-4 shadow-2xl max-h-[85vh] overflow-y-auto animate-in slide-in-from-bottom duration-200">
-        <div class="flex items-center justify-between border-b border-surface-container pb-3">
-          <div class="flex items-center gap-2">
-            <span class="material-symbols-outlined text-primary text-[24px]">account_balance_wallet</span>
-            <h3 class="font-headline-md text-headline-md text-on-surface">Balances &amp; Debts</h3>
-          </div>
-          <button id="btn-close-balances-modal" class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-surface-container text-on-surface-variant">
-            <span class="material-symbols-outlined">close</span>
-          </button>
-        </div>
-
-        <!-- Net Balances List -->
-        <div>
-          <span class="font-label-sm text-label-sm uppercase tracking-wider text-outline block mb-2 font-bold">Individual Net Balances</span>
-          <div class="flex flex-col gap-2" id="balances-list-container">
-            <!-- JS populated -->
-          </div>
-        </div>
-
-        <!-- Simplified Payments (Greedy Algorithm) -->
-        <div class="mt-2 p-3 bg-surface-container-low rounded-xl">
-          <div class="flex items-center gap-2 mb-2">
-            <span class="material-symbols-outlined text-primary text-[20px]">swap_horiz</span>
-            <span class="font-headline-sm text-headline-sm text-on-surface">Simplified Payments</span>
-          </div>
-          <p class="font-body-sm text-body-sm text-on-surface-variant mb-3">
-            Using Splitwise's greedy algorithm to settle everyone in the fewest transactions possible:
-          </p>
-          <div class="flex flex-col gap-2" id="simplified-debts-container">
-            <!-- JS populated -->
-          </div>
-        </div>
-
-        <button onclick="document.getElementById('modal-balances').classList.add('hidden')" class="w-full py-2.5 rounded-lg bg-surface-container text-on-surface font-label-lg">Close</button>
+  <!-- MODAL 5: Create Group -->
+  <div class="modal-overlay" id="modal-group" onclick="closeModalOnBg(event, 'modal-group')">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="modal-title">Create Group</div>
+        <button class="modal-close" onclick="closeModal('modal-group')">×</button>
       </div>
-    </div>
-
-
-    <!-- ========================================================================= -->
-    <!-- MODAL 3: SPENDING BREAKDOWN                                               -->
-    <!-- ========================================================================= -->
-    <div id="modal-spending-breakdown" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-end justify-center hidden">
-      <div class="w-full max-w-md bg-surface-container-lowest rounded-t-2xl p-space-md flex flex-col gap-4 shadow-2xl max-h-[85vh] overflow-y-auto animate-in slide-in-from-bottom duration-200">
-        <div class="flex items-center justify-between border-b border-surface-container pb-3">
-          <div class="flex items-center gap-2">
-            <span class="material-symbols-outlined text-primary text-[24px]">pie_chart</span>
-            <h3 class="font-headline-md text-headline-md text-on-surface">Spending Breakdown</h3>
-          </div>
-          <button onclick="document.getElementById('modal-spending-breakdown').classList.add('hidden')" class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-surface-container text-on-surface-variant">
-            <span class="material-symbols-outlined">close</span>
-          </button>
-        </div>
-
-        <div class="p-3 bg-primary-container/10 rounded-xl flex items-center justify-between">
-          <div>
-            <span class="text-xs uppercase text-primary font-bold tracking-wider">Total Group Spend</span>
-            <h2 class="font-headline-lg text-headline-lg text-on-surface" id="breakdown-total-spend">₹0.00</h2>
-          </div>
-          <div class="w-12 h-12 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center">
-            <span class="material-symbols-outlined text-[28px]">payments</span>
+      <form id="group-form" onsubmit="handleCreateGroup(event)">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label">Group Name</label>
+            <input type="text" id="new-group-name" class="form-input" placeholder="e.g. Manali Trip, Bangalore Flatmates" required autofocus/>
           </div>
         </div>
-
-        <div class="flex flex-col gap-3">
-          <span class="font-label-sm text-label-sm uppercase tracking-wider text-outline block font-bold">Category Breakdown</span>
-          <div id="breakdown-category-bars" class="flex flex-col gap-2.5">
-            <!-- JS populated -->
-          </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" onclick="closeModal('modal-group')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Create Group</button>
         </div>
-
-        <div class="flex flex-col gap-3 mt-2">
-          <span class="font-label-sm text-label-sm uppercase tracking-wider text-outline block font-bold">Spent per Member</span>
-          <div id="breakdown-members-list" class="flex flex-col gap-2">
-            <!-- JS populated -->
-          </div>
-        </div>
-
-        <button onclick="document.getElementById('modal-spending-breakdown').classList.add('hidden')" class="w-full py-2.5 rounded-lg bg-surface-container text-on-surface font-label-lg mt-2">Close</button>
-      </div>
+      </form>
     </div>
+  </div>
 
-
-    <!-- ========================================================================= -->
-    <!-- MODAL 4: CATEGORY PICKER                                                  -->
-    <!-- ========================================================================= -->
-    <div id="modal-category-picker" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-end justify-center hidden">
-      <div class="w-full max-w-md bg-surface-container-lowest rounded-t-2xl p-space-md flex flex-col gap-3 shadow-2xl animate-in slide-in-from-bottom duration-200">
-        <div class="flex items-center justify-between border-b border-surface-container pb-2">
-          <h3 class="font-headline-sm text-headline-sm text-on-surface">Select Category</h3>
-          <button onclick="document.getElementById('modal-category-picker').classList.add('hidden')" class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-surface-container text-on-surface-variant">
-            <span class="material-symbols-outlined">close</span>
-          </button>
-        </div>
-
-        <div class="grid grid-cols-4 gap-2.5 py-2">
-          <button type="button" class="category-choice-btn flex flex-col items-center gap-1 p-2 rounded-xl hover:bg-surface-container active:scale-95 transition-all text-center" data-icon="restaurant" data-name="Food & Drink" data-sub="Dining">
-            <div class="w-12 h-12 rounded-xl bg-amber-500/15 text-amber-600 flex items-center justify-center">
-              <span class="material-symbols-outlined text-[24px]">restaurant</span>
-            </div>
-            <span class="text-[11px] font-semibold text-on-surface truncate w-full">Food & Drink</span>
-          </button>
-          
-          <button type="button" class="category-choice-btn flex flex-col items-center gap-1 p-2 rounded-xl hover:bg-surface-container active:scale-95 transition-all text-center" data-icon="local_taxi" data-name="Taxi & Transit" data-sub="Cab">
-            <div class="w-12 h-12 rounded-xl bg-yellow-500/15 text-yellow-600 flex items-center justify-center">
-              <span class="material-symbols-outlined text-[24px]">local_taxi</span>
-            </div>
-            <span class="text-[11px] font-semibold text-on-surface truncate w-full">Taxi / Cab</span>
-          </button>
-
-          <button type="button" class="category-choice-btn flex flex-col items-center gap-1 p-2 rounded-xl hover:bg-surface-container active:scale-95 transition-all text-center" data-icon="scuba_diving" data-name="Activities" data-sub="Sports">
-            <div class="w-12 h-12 rounded-xl bg-sky-500/15 text-sky-600 flex items-center justify-center">
-              <span class="material-symbols-outlined text-[24px]">scuba_diving</span>
-            </div>
-            <span class="text-[11px] font-semibold text-on-surface truncate w-full">Activity</span>
-          </button>
-
-          <button type="button" class="category-choice-btn flex flex-col items-center gap-1 p-2 rounded-xl hover:bg-surface-container active:scale-95 transition-all text-center" data-icon="shopping_bag" data-name="Shopping" data-sub="Groceries">
-            <div class="w-12 h-12 rounded-xl bg-purple-500/15 text-purple-600 flex items-center justify-center">
-              <span class="material-symbols-outlined text-[24px]">shopping_bag</span>
-            </div>
-            <span class="text-[11px] font-semibold text-on-surface truncate w-full">Shopping</span>
-          </button>
-
-          <button type="button" class="category-choice-btn flex flex-col items-center gap-1 p-2 rounded-xl hover:bg-surface-container active:scale-95 transition-all text-center" data-icon="hotel" data-name="Stay / Hotel" data-sub="Resort">
-            <div class="w-12 h-12 rounded-xl bg-emerald-500/15 text-emerald-600 flex items-center justify-center">
-              <span class="material-symbols-outlined text-[24px]">hotel</span>
-            </div>
-            <span class="text-[11px] font-semibold text-on-surface truncate w-full">Hotel</span>
-          </button>
-
-          <button type="button" class="category-choice-btn flex flex-col items-center gap-1 p-2 rounded-xl hover:bg-surface-container active:scale-95 transition-all text-center" data-icon="flight" data-name="Flights" data-sub="Airfare">
-            <div class="w-12 h-12 rounded-xl bg-blue-500/15 text-blue-600 flex items-center justify-center">
-              <span class="material-symbols-outlined text-[24px]">flight</span>
-            </div>
-            <span class="text-[11px] font-semibold text-on-surface truncate w-full">Flight</span>
-          </button>
-
-          <button type="button" class="category-choice-btn flex flex-col items-center gap-1 p-2 rounded-xl hover:bg-surface-container active:scale-95 transition-all text-center" data-icon="local_bar" data-name="Drinks & Party" data-sub="Bar">
-            <div class="w-12 h-12 rounded-xl bg-rose-500/15 text-rose-600 flex items-center justify-center">
-              <span class="material-symbols-outlined text-[24px]">local_bar</span>
-            </div>
-            <span class="text-[11px] font-semibold text-on-surface truncate w-full">Drinks</span>
-          </button>
-
-          <button type="button" class="category-choice-btn flex flex-col items-center gap-1 p-2 rounded-xl hover:bg-surface-container active:scale-95 transition-all text-center" data-icon="receipt_long" data-name="General" data-sub="Bills">
-            <div class="w-12 h-12 rounded-xl bg-gray-500/15 text-gray-600 flex items-center justify-center">
-              <span class="material-symbols-outlined text-[24px]">receipt_long</span>
-            </div>
-            <span class="text-[11px] font-semibold text-on-surface truncate w-full">General</span>
-          </button>
-        </div>
-      </div>
-    </div>
-
-
-    <!-- ========================================================================= -->
-    <!-- MODAL 5: GROUP SWITCHER / CREATE GROUP                                    -->
-    <!-- ========================================================================= -->
-    <div id="modal-group-switcher" class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-end justify-center hidden">
-      <div class="w-full max-w-md bg-surface-container-lowest rounded-t-2xl p-space-md flex flex-col gap-4 shadow-2xl max-h-[85vh] overflow-y-auto animate-in slide-in-from-bottom duration-200">
-        <div class="flex items-center justify-between border-b border-surface-container pb-3">
-          <div class="flex items-center gap-2">
-            <span class="material-symbols-outlined text-primary text-[24px]">groups</span>
-            <h3 class="font-headline-md text-headline-md text-on-surface">Your Groups</h3>
-          </div>
-          <button onclick="document.getElementById('modal-group-switcher').classList.add('hidden')" class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-surface-container text-on-surface-variant">
-            <span class="material-symbols-outlined">close</span>
-          </button>
-        </div>
-
-        <div id="groups-list-container" class="flex flex-col gap-2">
-          <!-- JS populated -->
-        </div>
-
-        <!-- Create New Group Form -->
-        <div class="mt-2 p-3 bg-surface-container-low rounded-xl flex flex-col gap-2.5">
-          <span class="font-label-sm text-label-sm uppercase tracking-wider text-outline block font-bold">Create New Group</span>
-          <input id="input-new-group-name" class="p-2.5 bg-surface-container-lowest rounded-lg border border-surface-container font-body-md outline-none" placeholder="Group Name (e.g. Manali Trip)"/>
-          <input id="input-new-group-members" class="p-2.5 bg-surface-container-lowest rounded-lg border border-surface-container font-body-md outline-none" placeholder="Members (comma separated: Alice, Bob, You)"/>
-          <button id="btn-create-group-submit" class="w-full py-2.5 rounded-lg bg-primary text-on-primary font-label-lg active:scale-95 transition-all">Create Group</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Options Menu Dropdown Modal -->
-    <div id="modal-options-menu" class="fixed inset-0 z-50 bg-black/30 backdrop-blur-xs flex items-start justify-end p-4 hidden" onclick="this.classList.add('hidden')">
-      <div class="mt-14 w-56 bg-surface-container-lowest rounded-2xl shadow-2xl p-2 border border-surface-container flex flex-col gap-1" onclick="event.stopPropagation()">
-        <button onclick="handleResetToZero()" class="w-full p-2.5 text-left rounded-xl hover:bg-red-50 text-error font-medium text-sm flex items-center gap-2 transition-colors">
-          <span class="material-symbols-outlined text-[18px]">restart_alt</span>
-          <span>Reset All to ₹0.00</span>
-        </button>
-        <button onclick="document.getElementById('modal-options-menu').classList.add('hidden'); document.getElementById('modal-group-switcher').classList.remove('hidden'); renderGroupsModalList();" class="w-full p-2.5 text-left rounded-xl hover:bg-surface-container font-medium text-sm text-on-surface flex items-center gap-2 transition-colors">
-          <span class="material-symbols-outlined text-[18px]">swap_horiz</span>
-          <span>Switch Group</span>
-        </button>
-        <button onclick="document.getElementById('modal-options-menu').classList.add('hidden'); openBalancesModal();" class="w-full p-2.5 text-left rounded-xl hover:bg-surface-container font-medium text-sm text-on-surface flex items-center gap-2 transition-colors">
-          <span class="material-symbols-outlined text-[18px]">account_balance_wallet</span>
-          <span>View Balances</span>
-        </button>
-      </div>
-    </div>
-
-    <!-- Toast Notification Container -->
-    <div id="toast" class="fixed top-20 left-1/2 -translate-x-1/2 z-50 pointer-events-none transition-all duration-300 opacity-0 -translate-y-2">
-      <div class="bg-inverse-surface text-inverse-on-surface px-4 py-2.5 rounded-full shadow-lg flex items-center gap-2 text-sm font-semibold">
-        <span class="material-symbols-outlined text-[18px] text-primary-container" id="toast-icon">check_circle</span>
-        <span id="toast-message">Success!</span>
-      </div>
-    </div>
-
-  </div> <!-- End wrapper -->
-
-
-  <!-- ========================================================================= -->
-  <!-- APPLICATION SCRIPT & STATE MANAGEMENT                                     -->
-  <!-- ========================================================================= -->
+  <!-- Application Logic -->
   <script>
-    // -------------------------------------------------------------------------
-    // App State - All Clean and Starting at ₹0.00
-    // -------------------------------------------------------------------------
-    const API_BASE = window.location.origin;
-    let isLiveBackend = false;
-    let currentGroupName = "Goa Trip 🏖️";
-    let currentGroup = null;
-    let splitMode = "EQUAL"; // EQUAL, EXACT, PERCENT, SHARES
-    let selectedCategory = {
-      icon: "restaurant",
-      name: "Food & Drink",
-      sub: "Dining"
-    };
-    let settleMethod = "GPay UPI";
+    // State
+    let currentGroupName = "Goa Trip";
+    let activeUser = localStorage.getItem("splitwise_active_user") || "You";
+    let groupData = null;
+    let allGroups = [];
+    let currentView = 'overview';
 
-    // Clean Fresh Fallback Initial State (Starts with ₹0.00 and 0 expenses)
-    const fallbackGroup = {
-      name: "Goa Trip 🏖️",
-      members: ["Rahul", "Priya", "Amit", "You"],
-      expenses: []
-    };
-
-    // Purge any legacy dummy demo data cached in localStorage
-    try {
-      const savedKey = 'splitwise_group_' + currentGroupName;
-      const legacyRaw = localStorage.getItem(savedKey);
-      if (legacyRaw) {
-        const parsed = JSON.parse(legacyRaw);
-        if (parsed && parsed.expenses && parsed.expenses.some(e => e.id === 'exp_1' || (e.date && e.date.includes('2024')))) {
-          localStorage.removeItem(savedKey);
-        }
-      }
-    } catch (e) {}
-
-    // Calculate Client-Side Net Balances
-    function computeBalances(group) {
-      const net = {};
-      group.members.forEach(m => net[m] = 0);
-      
-      group.expenses.forEach(e => {
-        net[e.payer] = (net[e.payer] || 0) + e.total;
-        Object.entries(e.shares || {}).forEach(([member, amount]) => {
-          net[member] = (net[member] || 0) - amount;
-        });
+    // Format Indian Rupee (paise to formatted ₹)
+    function formatRupee(paise, showSign = false) {
+      if (paise === undefined || paise === null) return "₹0.00";
+      const isNeg = paise < 0;
+      const absPaise = Math.abs(paise);
+      const rupees = (absPaise / 100).toLocaleString('en-IN', {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
       });
-      return net;
-    }
-
-    // Debt Simplification (Greedy algorithm matching Java backend)
-    function computeSimplifiedDebts(net) {
-      const copy = { ...net };
-      const debts = [];
-      while (true) {
-        let maxCreditor = null;
-        let maxDebtor = null;
-        for (const [m, amt] of Object.entries(copy)) {
-          if (maxCreditor === null || amt > copy[maxCreditor]) maxCreditor = m;
-          if (maxDebtor === null || amt < copy[maxDebtor]) maxDebtor = m;
-        }
-        if (!maxCreditor || copy[maxCreditor] <= 0 || copy[maxDebtor] >= 0) break;
-        const settleAmt = Math.min(copy[maxCreditor], -copy[maxDebtor]);
-        if (settleAmt <= 0) break;
-        debts.push({ from: maxDebtor, to: maxCreditor, amount: settleAmt });
-        copy[maxCreditor] -= settleAmt;
-        copy[maxDebtor] += settleAmt;
+      if (showSign) {
+        if (isNeg) return "-₹" + rupees;
+        if (paise > 0) return "+₹" + rupees;
       }
-      return debts;
+      return (isNeg ? "-₹" : "₹") + rupees;
     }
 
-    // Money Formatter (paise to Rupee)
-    function formatMoney(cents) {
-      const num = Math.abs(cents || 0) / 100;
-      return "₹" + num.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-    }
-
-    function parseRupeeInput(str) {
-      if (!str) return 0;
-      const clean = str.toString().replace(/,/g, '').replace(/₹/g, '').trim();
-      const val = parseFloat(clean);
-      return isNaN(val) ? 0 : Math.round(val * 100);
-    }
-
-    // -------------------------------------------------------------------------
-    // View Switching
-    // -------------------------------------------------------------------------
-    function switchView(target) {
-      const screenGroup = document.getElementById('screen-group-detail');
-      const screenAdd = document.getElementById('screen-add-expense');
-
-      if (target === 'add-expense') {
-        screenGroup.classList.add('view-hidden');
-        screenAdd.classList.remove('view-hidden');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        setupAddExpenseForm();
-      } else {
-        screenAdd.classList.add('view-hidden');
-        screenGroup.classList.remove('view-hidden');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        renderGroupDetail();
+    // Category Label Helper
+    function getCategoryTag(cat) {
+      switch (cat) {
+        case 'food': return 'Food';
+        case 'groceries': return 'Groceries';
+        case 'transport': return 'Transport';
+        case 'rent': return 'Rent';
+        case 'bills': return 'Bills';
+        case 'services': return 'Services';
+        case 'entertainment': return 'Activities';
+        default: return 'General';
       }
     }
 
-    // -------------------------------------------------------------------------
-    // Data Loading & Sync with Java Backend
-    // -------------------------------------------------------------------------
-    async function loadGroupData() {
+    // API Calls
+    async function fetchGroupData() {
       try {
-        const res = await fetch(`${API_BASE}/api/group?name=${encodeURIComponent(currentGroupName)}`);
+        const res = await fetch(`/api/group?name=${encodeURIComponent(currentGroupName)}`);
+        if (!res.ok) throw new Error("Failed to load group");
+        groupData = await res.json();
+
+        // Ensure activeUser is valid for current group
+        if (groupData.members && !groupData.members.includes(activeUser)) {
+          if (groupData.members.includes("You")) {
+            activeUser = "You";
+          } else if (groupData.members.length > 0) {
+            activeUser = groupData.members[0];
+          }
+        }
+
+        render();
+        await fetchAllGroups();
+      } catch (err) {
+        console.error("API error:", err);
+      }
+    }
+
+    async function fetchAllGroups() {
+      try {
+        const res = await fetch('/api/groups');
         if (res.ok) {
-          const data = await res.json();
-          currentGroup = data;
-          isLiveBackend = true;
-          document.getElementById('backend-status-pill').classList.replace('bg-primary/10', 'bg-emerald-500/15');
-          document.getElementById('backend-status-pill').classList.replace('text-primary', 'text-emerald-700');
-          document.getElementById('backend-label').textContent = 'Java Live';
-        } else {
-          throw new Error('API returned ' + res.status);
+          allGroups = await res.json();
+          renderGroupsSidebar();
         }
       } catch (err) {
-        isLiveBackend = false;
-        if (!currentGroup) {
-          const saved = localStorage.getItem('splitwise_group_' + currentGroupName);
-          currentGroup = saved ? JSON.parse(saved) : fallbackGroup;
-        }
-        document.getElementById('backend-label').textContent = 'Local Mode';
-        document.getElementById('backend-status-pill').title = 'Click to retry connection to Java server';
-      }
-      renderGroupDetail();
-    }
-
-    function saveLocal() {
-      localStorage.setItem('splitwise_group_' + currentGroupName, JSON.stringify(currentGroup));
-    }
-
-    // Reset everything back to ₹0.00
-    async function handleResetToZero() {
-      document.getElementById('modal-options-menu').classList.add('hidden');
-      if (confirm("Reset all expenses in this group back to ₹0.00?")) {
-        if (isLiveBackend) {
-          try {
-            await fetch(`${API_BASE}/api/reset`, { method: 'POST' });
-          } catch (e) {}
-        }
-        localStorage.removeItem('splitwise_group_' + currentGroupName);
-        currentGroup = {
-          name: currentGroupName,
-          members: ["Rahul", "Priya", "Amit", "You"],
-          expenses: []
-        };
-        saveLocal();
-        showToast("All balances reset to ₹0.00", "check_circle");
-        renderGroupDetail();
+        console.warn("Could not load groups list", err);
       }
     }
 
-    // -------------------------------------------------------------------------
-    // Render Group Detail (Screen 1 - Clean Home Screen at 0)
-    // -------------------------------------------------------------------------
-    function renderGroupDetail() {
-      if (!currentGroup) return;
-
-      const netBalances = currentGroup.netBalances || computeBalances(currentGroup);
-      const debts = currentGroup.simplifiedDebts || computeSimplifiedDebts(netBalances);
-      
-      // Dynamic live dates (Always Up to Date!)
-      const now = new Date();
-      const currentMonthStr = now.toLocaleString('en-US', { month: 'long', year: 'numeric' }).toUpperCase();
-      const headerDateStr = now.toLocaleDateString('en-US', { weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' });
-      document.getElementById('timeline-month-label').textContent = currentMonthStr;
-      document.getElementById('header-live-date').textContent = headerDateStr;
-
-      // Hero Header
-      document.getElementById('hero-group-name').textContent = currentGroup.name;
-      document.getElementById('header-group-title').textContent = currentGroup.name;
-      document.getElementById('hero-group-members').textContent = `${currentGroup.members.length} members: ${currentGroup.members.join(', ')}`;
-      
-      // Calculate overall balance for "You"
-      const youNet = netBalances['You'] || 0;
-      const netIconWrap = document.getElementById('net-balance-icon-wrap');
-      const netIcon = document.getElementById('net-balance-icon');
-      const netText = document.getElementById('net-balance-text');
-      const netAmount = document.getElementById('net-balance-amount');
-      const netBadge = document.getElementById('net-balance-badge');
-
-      if (youNet > 0) {
-        netIconWrap.className = 'w-7 h-7 rounded-full bg-primary-container/20 flex items-center justify-center text-primary';
-        netIcon.textContent = 'trending_up';
-        netText.innerHTML = `You are owed <span class="font-headline-sm text-headline-sm text-primary">${formatMoney(youNet)}</span>`;
-        netBadge.textContent = 'In Green';
-        netBadge.className = 'font-label-sm text-label-sm bg-primary-fixed text-on-primary-fixed px-2 py-0.5 rounded-full font-bold uppercase tracking-wider';
-      } else if (youNet < 0) {
-        netIconWrap.className = 'w-7 h-7 rounded-full bg-secondary-container/20 flex items-center justify-center text-secondary';
-        netIcon.textContent = 'trending_down';
-        netText.innerHTML = `You owe <span class="font-headline-sm text-headline-sm text-secondary">${formatMoney(-youNet)}</span>`;
-        netBadge.textContent = 'In Red';
-        netBadge.className = 'font-label-sm text-label-sm bg-secondary-fixed text-on-secondary-fixed px-2 py-0.5 rounded-full font-bold uppercase tracking-wider';
-      } else {
-        // CLEAN ZERO STATE
-        netIconWrap.className = 'w-7 h-7 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-600';
-        netIcon.textContent = 'check_circle';
-        netText.innerHTML = `You are all settled up • <span class="font-headline-sm text-headline-sm text-primary font-bold">₹0.00</span>`;
-        netBadge.textContent = 'Settled';
-        netBadge.className = 'font-label-sm text-label-sm bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full font-bold uppercase tracking-wider';
+    function renderGroupsSidebar() {
+      const container = document.getElementById('groups-sidebar-list');
+      if (!allGroups || allGroups.length === 0) {
+        container.innerHTML = `<div class="group-item active">${currentGroupName}</div>`;
+        return;
       }
-
-      // Calculate Total Spend, Lent, Borrowed
-      let totalSpend = 0;
-      let totalLent = 0;
-      let totalBorrowed = 0;
-
-      currentGroup.expenses.forEach(e => {
-        if (!e.settlement) totalSpend += e.total;
-        if (e.payer === 'You') {
-          const youShare = (e.shares && e.shares['You']) || 0;
-          totalLent += (e.total - youShare);
-        } else {
-          const youOwe = (e.shares && e.shares['You']) || 0;
-          totalBorrowed += youOwe;
-        }
-      });
-
-      document.getElementById('stat-group-spend').textContent = formatMoney(totalSpend);
-      document.getElementById('stat-you-lent').textContent = formatMoney(totalLent);
-      document.getElementById('stat-you-borrowed').textContent = formatMoney(totalBorrowed);
-      document.getElementById('total-group-spend-text').textContent = `Total group spend: ${formatMoney(totalSpend)} • ${currentGroup.expenses.length} expenses`;
-      document.getElementById('transactions-count-label').textContent = `${currentGroup.expenses.length} transactions`;
-
-      // Individual Balances Carousel
-      renderMemberCarousel(netBalances);
-
-      // Expenses Feed (With clean zero state)
-      renderExpensesFeed();
-    }
-
-    // Render Member Balances Carousel (All 0 by default)
-    function renderMemberCarousel(netBalances) {
-      const container = document.getElementById('member-balance-carousel');
-      container.innerHTML = '';
-
-      let activeCount = 0;
-      const avatarColors = [
-        { bg: 'bg-primary-fixed-dim/40', text: 'text-on-primary-fixed' },
-        { bg: 'bg-tertiary-fixed/50', text: 'text-on-tertiary-fixed' },
-        { bg: 'bg-amber-200', text: 'text-amber-900' },
-        { bg: 'bg-indigo-200', text: 'text-indigo-900' }
-      ];
-
-      currentGroup.members.forEach((m, idx) => {
-        if (m === 'You') return;
-        const bal = netBalances[m] || 0;
-        const color = avatarColors[idx % avatarColors.length];
-        
-        let statusText = '';
-        let statusClass = '';
-        let iconName = '';
-        let iconColor = '';
-        let opacityClass = '';
-
-        if (bal < 0) {
-          activeCount++;
-          statusText = `owes you ${formatMoney(-bal)}`;
-          statusClass = 'text-primary font-bold';
-          iconName = 'arrow_downward';
-          iconColor = 'text-primary';
-        } else if (bal > 0) {
-          activeCount++;
-          statusText = `you owe ${formatMoney(bal)}`;
-          statusClass = 'text-secondary font-bold';
-          iconName = 'arrow_upward';
-          iconColor = 'text-secondary';
-        } else {
-          // Zero state
-          statusText = 'settled up (₹0.00)';
-          statusClass = 'text-outline font-medium';
-          iconName = 'check_circle';
-          iconColor = 'text-emerald-600';
-          opacityClass = 'opacity-90';
-        }
-
-        const card = document.createElement('div');
-        card.className = `shrink-0 bg-surface-container-lowest rounded-xl p-2.5 shadow-sm flex items-center gap-2.5 min-w-[170px] border border-surface-container/60 cursor-pointer hover:bg-surface-container-low transition-colors ${opacityClass}`;
-        card.onclick = () => openSettleUpWith(m, bal);
-
-        card.innerHTML = `
-          <div class="w-8 h-8 rounded-full ${color.bg} ${color.text} font-headline-sm text-headline-sm flex items-center justify-center shrink-0 font-bold">
-            ${m.charAt(0)}
-          </div>
-          <div class="min-w-0 flex-1">
-            <p class="font-label-md text-label-md text-on-surface truncate">${m}</p>
-            <p class="font-label-sm text-label-sm ${statusClass} truncate">${statusText}</p>
-          </div>
-          <span class="material-symbols-outlined ${iconColor} text-[18px]">${iconName}</span>
-        `;
-        container.appendChild(card);
-      });
-
-      // Append "+ Add Member" card
-      const addCard = document.createElement('div');
-      addCard.className = 'shrink-0 bg-surface-container-low/70 rounded-xl p-2.5 shadow-sm flex items-center gap-2 min-w-[130px] border border-dashed border-outline/30 cursor-pointer hover:bg-surface-container transition-colors';
-      addCard.onclick = () => {
-        const newName = prompt("Enter new member's name:");
-        if (newName && newName.trim()) {
-          const cleanName = newName.trim();
-          if (!currentGroup.members.includes(cleanName)) {
-            currentGroup.members.push(cleanName);
-            saveLocal();
-            showToast(`${cleanName} added!`, 'person_add');
-            renderGroupDetail();
-          }
-        }
-      };
-      addCard.innerHTML = `
-        <div class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center">
-          <span class="material-symbols-outlined text-[18px]">person_add</span>
+      container.innerHTML = allGroups.map(g => `
+        <div class="group-item ${g.name === currentGroupName ? 'active' : ''}" onclick="selectGroup('${escapeQuotes(g.name)}')">
+          <span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${g.name}</span>
+          <span style="font-size:11px; font-family:var(--font-mono); color:var(--text-muted);">${g.memberCount}</span>
         </div>
-        <span class="text-xs font-semibold text-primary">+ Add Member</span>
-      `;
-      container.appendChild(addCard);
-
-      document.getElementById('active-members-count').textContent = `${activeCount} of ${currentGroup.members.length} active`;
+      `).join('');
     }
 
-    // Render Expenses Timeline (Proper Empty State when 0)
-    function renderExpensesFeed() {
-      const container = document.getElementById('expenses-feed-container');
-      container.innerHTML = '';
+    function selectGroup(name) {
+      currentGroupName = name;
+      fetchGroupData();
+    }
 
-      if (currentGroup.expenses.length === 0) {
-        container.innerHTML = `
-          <div class="p-8 text-center bg-surface-container-lowest flex flex-col items-center justify-center gap-3">
-            <div class="w-16 h-16 rounded-full bg-primary-container/20 text-primary flex items-center justify-center shadow-inner">
-              <span class="material-symbols-outlined text-[32px]">receipt_long</span>
+    function escapeQuotes(str) {
+      return (str || '').replace(/'/g, "\\'");
+    }
+
+    // Switch Active User
+    function switchActiveUser(userName) {
+      activeUser = userName;
+      localStorage.setItem("splitwise_active_user", userName);
+      render();
+      closeModal('modal-switch-user');
+    }
+
+    function openSwitchUserModal() {
+      const container = document.getElementById('switch-user-options');
+      const members = (groupData && groupData.members) || ['You'];
+      const netBalances = (groupData && groupData.netBalances) || {};
+
+      container.innerHTML = members.map(m => {
+        const isCurrent = m === activeUser;
+        const net = netBalances[m] || 0;
+        const netText = formatRupee(net, true);
+        const isPos = net > 0;
+        const isNeg = net < 0;
+
+        return `
+          <div class="user-select-card ${isCurrent ? 'active' : ''}" onclick="switchActiveUser('${escapeQuotes(m)}')">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <div class="avatar" style="width: 26px; height: 26px; font-size: 10.5px;">${m.substring(0, 2).toUpperCase()}</div>
+              <div>
+                <div style="font-weight: 600; font-size: 13px; color: var(--text-main);">
+                  ${m} ${isCurrent ? '<span style="font-size: 10.5px; color: var(--accent); font-weight: 600;">(Active)</span>' : ''}
+                </div>
+                <div style="font-size: 11px; color: var(--text-muted);">
+                  Net balance: <span style="font-family: var(--font-mono); font-weight: 600; color: ${isPos ? 'var(--positive)' : isNeg ? 'var(--negative)' : 'var(--text-muted)'};">${netText}</span>
+                </div>
+              </div>
             </div>
-            <div>
-              <h4 class="font-headline-sm text-headline-sm text-on-surface">No expenses recorded yet</h4>
-              <p class="font-body-sm text-body-sm text-on-surface-variant max-w-[260px] mx-auto mt-1">
-                All group balances are settled at ₹0.00. Tap below to record your first group expense!
-              </p>
-            </div>
-            <button onclick="switchView('add-expense')" class="mt-2 px-5 py-2.5 rounded-full bg-primary text-on-primary font-label-lg text-label-lg shadow-sm hover:opacity-95 active:scale-95 transition-all flex items-center gap-2">
-              <span class="material-symbols-outlined text-[18px]">add</span>
-              <span>Add First Expense</span>
+            <button class="btn btn-default btn-sm" style="font-size: 11.5px; padding: 3px 8px;">
+              ${isCurrent ? 'Current' : 'Select'}
             </button>
           </div>
         `;
+      }).join('');
+
+      openModal('modal-switch-user');
+    }
+
+    // View Navigation
+    function switchView(view) {
+      currentView = view;
+
+      // Update screen sections
+      document.getElementById('view-overview').style.display = view === 'overview' ? 'block' : 'none';
+      document.getElementById('view-settlements').style.display = view === 'settlements' ? 'block' : 'none';
+      document.getElementById('view-members').style.display = view === 'members' ? 'block' : 'none';
+
+      // Desktop top tabs
+      document.querySelectorAll('.screen-tab').forEach(t => t.classList.remove('active'));
+      const activeTab = document.getElementById(`tab-${view}`);
+      if (activeTab) activeTab.classList.add('active');
+
+      // Desktop sidebar buttons
+      document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+      const activeNav = document.getElementById(`nav-btn-${view}`);
+      if (activeNav) activeNav.classList.add('active');
+
+      // Mobile bottom nav
+      document.querySelectorAll('.mobile-tab-btn').forEach(b => b.classList.remove('active'));
+      const activeMobile = document.getElementById(`m-nav-${view}`);
+      if (activeMobile) activeMobile.classList.add('active');
+    }
+
+    // Main Render Routine
+    function render() {
+      if (!groupData) return;
+
+      // Update active user indicators
+      document.getElementById('current-user-avatar').textContent = activeUser.substring(0, 2).toUpperCase();
+      document.getElementById('current-user-name').textContent = activeUser;
+      document.getElementById('current-user-label').textContent = 'Perspective user';
+      document.getElementById('header-user-btn-label').textContent = `Viewing as ${activeUser}`;
+      document.getElementById('label-net-balance').textContent = `${activeUser}'s net position`;
+      document.getElementById('label-you-are-owed').textContent = `${activeUser} is owed`;
+      document.getElementById('label-you-owe').textContent = `${activeUser} owes`;
+      document.getElementById('col-your-share-label').textContent = `${activeUser}'s Share`;
+
+      // 1. Group Overview Header
+      document.getElementById('display-group-name').textContent = groupData.name;
+      document.getElementById('display-member-count').textContent = `${groupData.members.length} members`;
+      document.getElementById('display-expense-count').textContent = `${(groupData.expenses || []).length} expenses`;
+
+      // 2. Balances Strip
+      document.getElementById('val-total-spend').textContent = formatRupee(groupData.totalSpend || 0);
+
+      const netBalances = groupData.netBalances || {};
+      const userNet = netBalances[activeUser] || 0;
+
+      const netElem = document.getElementById('val-net-balance');
+      netElem.textContent = formatRupee(userNet, true);
+      netElem.className = 'metric-value ' + (userNet > 0 ? 'owed-to-you' : userNet < 0 ? 'you-owe' : '');
+
+      let userIsOwed = 0;
+      let userOwes = 0;
+
+      // Calculate based on simplified debts
+      (groupData.simplifiedDebts || []).forEach(debt => {
+        // e.g. "Rahul owes Priya  ₹820.00"
+        const parts = debt.split(/\s+owes?\s+/);
+        if (parts.length >= 2) {
+          const debtor = parts[0].trim();
+          const rest = parts[1];
+          const amtMatch = rest.match(/₹([0-9,.]+)/);
+          if (amtMatch) {
+            const amount = parseFloat(amtMatch[1].replace(/,/g, '')) * 100;
+            const creditor = rest.replace(amtMatch[0], '').trim();
+
+            if (debtor === activeUser) {
+              userOwes += amount;
+            } else if (creditor === activeUser) {
+              userIsOwed += amount;
+            }
+          }
+        }
+      });
+
+      document.getElementById('val-you-are-owed').textContent = formatRupee(userIsOwed);
+      document.getElementById('val-you-owe').textContent = formatRupee(userOwes);
+
+      // 3. Render Views
+      renderLedger();
+      renderSettlements();
+      renderMembers();
+
+      // Populate Selectors for Modals
+      populatePayerSelects();
+    }
+
+    // Render Transaction Ledger
+    function renderLedger() {
+      const container = document.getElementById('ledger-body');
+      const expenses = groupData.expenses || [];
+      document.getElementById('ledger-count-badge').textContent = expenses.length;
+
+      if (expenses.length === 0) {
+        container.innerHTML = `
+          <div class="empty-state">
+            <div class="empty-title">No transactions recorded</div>
+            <div class="empty-desc">Transactions added by group members will be logged here in chronological order.</div>
+            <button class="btn btn-default btn-sm" onclick="openAddExpenseModal()" style="margin-top: 6px;">Add expense</button>
+          </div>
+        `;
         return;
       }
 
-      const categoryIcons = {
-        restaurant: { icon: 'restaurant', bg: 'bg-amber-500/15', text: 'text-amber-600' },
-        local_taxi: { icon: 'local_taxi', bg: 'bg-yellow-500/15', text: 'text-yellow-600' },
-        scuba_diving: { icon: 'scuba_diving', bg: 'bg-sky-500/15', text: 'text-sky-600' },
-        beach_access: { icon: 'beach_access', bg: 'bg-teal-500/15', text: 'text-teal-600' },
-        shopping_bag: { icon: 'shopping_bag', bg: 'bg-purple-500/15', text: 'text-purple-600' },
-        price_check: { icon: 'price_check', bg: 'bg-primary-container/20', text: 'text-primary' },
-        hotel: { icon: 'hotel', bg: 'bg-emerald-500/15', text: 'text-emerald-600' },
-        flight: { icon: 'flight', bg: 'bg-blue-500/15', text: 'text-blue-600' },
-        receipt_long: { icon: 'receipt_long', bg: 'bg-gray-500/15', text: 'text-gray-600' }
-      };
+      container.innerHTML = expenses.map(exp => {
+        const isSettlement = !!exp.settlement;
+        const tag = isSettlement ? 'SETTLE' : getCategoryTag(exp.category);
 
-      currentGroup.expenses.forEach((e, idx) => {
-        const catInfo = categoryIcons[e.category] || categoryIcons.restaurant;
-        const isSettlement = e.settlement;
-        
-        let dayNum = "24";
-        let monthStr = "OCT";
-        if (e.date) {
-          const parts = e.date.replace(',', '').split(' ');
-          if (parts.length >= 2) {
-            monthStr = parts[0].substring(0, 3).toUpperCase();
-            dayNum = parts[1];
+        let yourShareText = "-";
+        let yourImpactClass = "neutral";
+
+        if (isSettlement) {
+          yourShareText = "Settlement";
+          yourImpactClass = "neutral";
+        } else {
+          const userShare = exp.shares && exp.shares[activeUser] !== undefined ? exp.shares[activeUser] : 0;
+          const paidBySelected = exp.payer === activeUser;
+
+          if (paidBySelected) {
+            const lent = exp.total - userShare;
+            yourShareText = lent > 0 ? `+${formatRupee(lent)}` : formatRupee(0);
+            yourImpactClass = "lent";
+          } else if (userShare > 0) {
+            yourShareText = `-${formatRupee(userShare)}`;
+            yourImpactClass = "borrowed";
+          } else {
+            yourShareText = "Not involved";
+            yourImpactClass = "neutral";
           }
         }
 
-        let impactLabel = '';
-        let impactAmount = '';
-        let impactClass = '';
-
-        if (isSettlement) {
-          impactLabel = 'settlement';
-          impactAmount = formatMoney(e.total);
-          impactClass = 'text-outline font-medium';
-        } else if (e.payer === 'You') {
-          const youShare = (e.shares && e.shares['You']) || 0;
-          const lent = e.total - youShare;
-          impactLabel = 'you lent';
-          impactAmount = formatMoney(lent);
-          impactClass = 'text-primary font-bold';
-        } else {
-          const youOwe = (e.shares && e.shares['You']) || 0;
-          impactLabel = 'you borrowed';
-          impactAmount = formatMoney(youOwe);
-          impactClass = 'text-secondary font-bold';
-        }
-
-        const item = document.createElement('div');
-        item.className = 'p-3.5 flex items-center gap-3 hover:bg-surface-container-low transition-colors active:bg-surface-container cursor-pointer';
-        
-        let sublineHtml = '';
-        if (isSettlement) {
-          sublineHtml = `
-            <div class="flex items-center gap-1.5 mt-0.5">
-              <span class="font-label-sm text-label-sm px-1.5 py-0.2 bg-surface-container rounded text-on-surface-variant font-medium">GPay UPI</span>
-              <span class="font-body-sm text-body-sm text-outline truncate">${e.notes || 'Payment recorded'}</span>
+        return `
+          <div class="ledger-row" data-search="${(exp.description + ' ' + exp.payer + ' ' + (exp.notes || '')).toLowerCase()}">
+            <span class="ledger-date">${exp.date || 'Recent'}</span>
+            <div><span class="cat-tag">${tag}</span></div>
+            <div class="ledger-desc-col">
+              <div class="ledger-desc-title">
+                ${exp.description}
+                ${isSettlement ? '<span class="badge-settlement">Settlement</span>' : ''}
+              </div>
+              <div class="ledger-desc-sub">${exp.notes ? exp.notes : (exp.shares ? Object.keys(exp.shares).length + ' participants' : '')}</div>
             </div>
-          `;
-        } else {
-          sublineHtml = `<p class="font-body-sm text-body-sm text-on-surface-variant truncate">${e.payer === 'You' ? 'You paid' : e.payer + ' paid'} ${formatMoney(e.total)}</p>`;
-        }
-
-        item.innerHTML = `
-          <!-- Date Block -->
-          <div class="flex flex-col items-center justify-center w-8 shrink-0">
-            <span class="font-label-sm text-label-sm uppercase text-on-surface-variant leading-none font-bold">${monthStr}</span>
-            <span class="font-headline-sm text-headline-sm text-on-surface leading-tight mt-0.5">${dayNum}</span>
-          </div>
-
-          <!-- Category Icon -->
-          <div class="w-10 h-10 rounded-full ${catInfo.bg} flex items-center justify-center ${catInfo.text} shrink-0">
-            <span class="material-symbols-outlined text-[20px]">${catInfo.icon}</span>
-          </div>
-
-          <!-- Expense Info -->
-          <div class="flex-1 min-w-0">
-            <div class="flex items-center gap-1.5">
-              <h4 class="font-headline-sm text-headline-sm text-on-surface truncate">${e.description}</h4>
-              ${isSettlement ? `<span class="material-symbols-outlined text-primary text-[16px] shrink-0" style="font-variation-settings: 'FILL' 1;">check_circle</span>` : ''}
+            <div class="ledger-payer">
+              <span style="font-weight: 500; color: var(--text-main);">${exp.payer}</span>
+              ${exp.payer === activeUser ? `<span style="font-size: 11px; color: var(--accent); font-weight: 500;"> (You)</span>` : ''}
             </div>
-            ${sublineHtml}
-          </div>
-
-          <!-- Balance Impact -->
-          <div class="text-right shrink-0">
-            <span class="font-label-sm text-label-sm ${impactClass} block leading-none">${impactLabel}</span>
-            <span class="font-currency-md text-currency-md ${impactClass} mt-0.5 block leading-tight">${impactAmount}</span>
+            <div class="ledger-total">${formatRupee(exp.total)}</div>
+            <div class="ledger-user-impact ${yourImpactClass}">${yourShareText}</div>
           </div>
         `;
+      }).join('');
+    }
 
-        container.appendChild(item);
-
-        if (idx < currentGroup.expenses.length - 1) {
-          const divider = document.createElement('div');
-          divider.className = 'h-[1px] bg-surface-container mx-3.5';
-          container.appendChild(divider);
-        }
+    function filterLedger() {
+      const query = document.getElementById('expense-search').value.toLowerCase().trim();
+      document.querySelectorAll('#ledger-body .ledger-row').forEach(row => {
+        const text = row.getAttribute('data-search') || '';
+        row.style.display = text.includes(query) ? 'grid' : 'none';
       });
     }
 
-    // -------------------------------------------------------------------------
-    // Setup & Manage Add Expense Form (Screen 2)
-    // -------------------------------------------------------------------------
-    function setupAddExpenseForm() {
-      if (!currentGroup) return;
+    // Render Simplified Settlements
+    function renderSettlements() {
+      const container = document.getElementById('settlements-list');
+      const debts = groupData.simplifiedDebts || [];
+      document.getElementById('settlement-count-badge').textContent = debts.length;
 
-      document.getElementById('form-group-pill-name').textContent = currentGroup.name;
-
-      // Payer dropdown
-      const selectPayer = document.getElementById('select-payer');
-      selectPayer.innerHTML = '';
-      currentGroup.members.forEach(m => {
-        const opt = document.createElement('option');
-        opt.value = m;
-        opt.textContent = m;
-        if (m === 'You') opt.selected = true;
-        selectPayer.appendChild(opt);
-      });
-
-      // Participant Chips
-      const chipsContainer = document.getElementById('form-participants-chips');
-      chipsContainer.innerHTML = '';
-      currentGroup.members.forEach(m => {
-        if (m === 'You') return;
-        const chip = document.createElement('div');
-        chip.className = 'flex-shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container-high text-on-surface font-label-md text-label-md';
-        chip.innerHTML = `
-          <div class="w-5 h-5 rounded-full bg-surface-variant flex items-center justify-center font-bold text-[10px] text-on-surface">
-            ${m.charAt(0)}
+      if (debts.length === 0) {
+        container.innerHTML = `
+          <div class="empty-state">
+            <div class="empty-title">All accounts settled</div>
+            <div class="empty-desc">All net balances are zero. There are no outstanding transfers pending.</div>
           </div>
-          <span>${m}</span>
         `;
-        chipsContainer.appendChild(chip);
-      });
+        return;
+      }
 
-      // Category Icon
-      document.getElementById('current-category-icon').textContent = selectedCategory.icon;
-      document.getElementById('current-category-label').textContent = `Category: ${selectedCategory.name} • ${selectedCategory.sub}`;
+      container.innerHTML = debts.map(debt => {
+        const parts = debt.split(/\s+owes?\s+/);
+        let debtor = parts[0] ? parts[0].trim() : "Member";
+        let rest = parts[1] || "";
+        let creditor = rest;
+        let amountStr = "";
 
-      // Date: Dynamic today's date
-      const today = new Date();
-      const dateStr = today.toISOString().split('T')[0];
-      document.getElementById('input-expense-date-picker').value = dateStr;
-      document.getElementById('label-expense-date').textContent = `Today, ${today.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}`;
+        const amtMatch = rest.match(/₹[0-9,.]+/);
+        if (amtMatch) {
+          amountStr = amtMatch[0];
+          creditor = rest.replace(amountStr, '').trim();
+        }
 
-      // Reset input fields
-      document.getElementById('input-expense-desc').value = '';
-      document.getElementById('input-expense-amount').value = '';
-      document.getElementById('input-expense-notes').value = '';
+        const involvesActiveUser = debtor === activeUser || creditor === activeUser;
 
-      updateSplitCalculations();
+        return `
+          <div class="settlement-row" style="${involvesActiveUser ? 'background: #fbfbf9;' : ''}">
+            <div class="settlement-info">
+              <div class="avatar" style="width:24px; height:24px; font-size:10px;">${debtor.substring(0, 2).toUpperCase()}</div>
+              <div>
+                <span class="debt-actor">${debtor}</span>
+                <span class="debt-arrow">pays</span>
+                <span class="debt-actor">${creditor}</span>
+                ${debtor === activeUser ? '<span style="font-size:11px; color:var(--negative); font-weight:600; margin-left:6px;">(You pay)</span>' : ''}
+                ${creditor === activeUser ? '<span style="font-size:11px; color:var(--positive); font-weight:600; margin-left:6px;">(You receive)</span>' : ''}
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <span class="debt-amount">${amountStr}</span>
+              <button class="btn btn-default btn-sm" onclick="prefillSettleModal('${escapeQuotes(debtor)}', '${escapeQuotes(creditor)}', '${amountStr}')">
+                Settle
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
     }
 
-    // Live recalculation of splits
-    function updateSplitCalculations() {
-      const amountPaise = parseRupeeInput(document.getElementById('input-expense-amount').value);
-      const members = currentGroup ? currentGroup.members : ['Rahul', 'Priya', 'Amit', 'You'];
-      const count = members.length;
+    // Render Group Members Page
+    function renderMembers() {
+      const container = document.getElementById('members-grid');
+      const members = groupData.members || [];
+      const netBalances = groupData.netBalances || {};
+      document.getElementById('members-count-badge').textContent = members.length;
 
-      // Update CTA labels
-      const formatted = formatMoney(amountPaise);
-      document.getElementById('save-button-label').textContent = amountPaise > 0 ? `Save ${formatted} Expense` : `Save Expense`;
+      container.innerHTML = members.map(m => {
+        const isCurrent = m === activeUser;
+        const net = netBalances[m] || 0;
+        const isPositive = net > 0;
+        const isNegative = net < 0;
+        const netText = formatRupee(net, true);
 
-      if (splitMode === 'EQUAL') {
-        const perPerson = count > 0 ? Math.round(amountPaise / count) : 0;
-        document.getElementById('calculated-split-per-person').textContent = `${formatMoney(perPerson)} / person`;
-        document.getElementById('calculated-split-count').textContent = `across ${count} people`;
-        document.getElementById('label-split-mode-text').textContent = 'equally';
-        document.getElementById('custom-split-container').classList.add('hidden');
-      } else {
-        document.getElementById('calculated-split-per-person').textContent = `Custom Split`;
-        document.getElementById('calculated-split-count').textContent = `${count} members`;
-        document.getElementById('label-split-mode-text').textContent = splitMode.toLowerCase();
-        renderCustomSplitRows(amountPaise);
+        const paidCount = (groupData.expenses || []).filter(e => e.payer === m && !e.settlement).length;
+
+        return `
+          <div class="member-card" style="${isCurrent ? 'border-color: var(--accent-border);' : ''}">
+            <div class="member-top">
+              <div class="member-name-block">
+                <div class="avatar">${m.substring(0, 2).toUpperCase()}</div>
+                <div>
+                  <div class="member-name">
+                    ${m}
+                    ${isCurrent ? '<span class="member-badge-you">Active (You)</span>' : ''}
+                  </div>
+                  <div style="font-size: 11px; color: var(--text-muted);">${paidCount} payments recorded</div>
+                </div>
+              </div>
+              ${!isCurrent ? `
+                <button class="btn btn-default btn-sm" onclick="switchActiveUser('${escapeQuotes(m)}')" style="font-size: 11px; padding: 2px 7px;">
+                  Switch to
+                </button>
+              ` : ''}
+            </div>
+            <div class="member-stat-row">
+              <span class="member-net-label">Net Balance</span>
+              <span class="member-net-val ${isPositive ? 'owed-to-you' : isNegative ? 'you-owe' : ''}" style="color: ${isPositive ? 'var(--positive)' : isNegative ? 'var(--negative)' : 'var(--text-muted)'};">
+                ${netText}
+              </span>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Modal Helpers
+    function populatePayerSelects() {
+      const members = (groupData && groupData.members) || [activeUser];
+      const expPayer = document.getElementById('exp-payer');
+      const settleFrom = document.getElementById('settle-from');
+      const settleTo = document.getElementById('settle-to');
+
+      const optionsHtml = members.map(m => `<option value="${m}">${m} ${m === activeUser ? '(Active User)' : ''}</option>`).join('');
+      expPayer.innerHTML = optionsHtml;
+      settleFrom.innerHTML = optionsHtml;
+      settleTo.innerHTML = optionsHtml;
+
+      // Select activeUser as default payer
+      if (members.includes(activeUser)) expPayer.value = activeUser;
+      if (members.includes(activeUser)) settleFrom.value = activeUser;
+      const other = members.find(m => m !== activeUser);
+      if (other) settleTo.value = other;
+
+      // Participants checkboxes
+      const partContainer = document.getElementById('exp-participants');
+      partContainer.innerHTML = members.map(m => `
+        <label class="participant-row">
+          <span>${m} ${m === activeUser ? '<span style="color:var(--accent); font-weight:600;">(You)</span>' : ''}</span>
+          <input type="checkbox" class="participant-checkbox" value="${m}" checked/>
+        </label>
+      `).join('');
+    }
+
+    function openAddExpenseModal() {
+      document.getElementById('exp-amount').value = '';
+      document.getElementById('exp-desc').value = '';
+      document.getElementById('exp-notes').value = '';
+      document.getElementById('exp-date').value = new Date().toISOString().split('T')[0];
+      populatePayerSelects();
+      openModal('modal-expense');
+    }
+
+    function openSettleModal() {
+      document.getElementById('settle-amount').value = '';
+      document.getElementById('settle-notes').value = '';
+      document.getElementById('settle-date').value = new Date().toISOString().split('T')[0];
+      populatePayerSelects();
+      updateSettleSuggestedAmount();
+      openModal('modal-settle');
+    }
+
+    function prefillSettleModal(debtor, creditor, amtStr) {
+      openSettleModal();
+      const settleFrom = document.getElementById('settle-from');
+      const settleTo = document.getElementById('settle-to');
+      if (debtor) settleFrom.value = debtor;
+      if (creditor) settleTo.value = creditor;
+
+      if (amtStr) {
+        const num = parseFloat(amtStr.replace(/[^0-9.]/g, ''));
+        if (!isNaN(num)) document.getElementById('settle-amount').value = num.toFixed(2);
       }
     }
 
-    // Render interactive custom split rows
-    function renderCustomSplitRows(totalPaise) {
-      const container = document.getElementById('custom-split-container');
-      const rows = document.getElementById('custom-split-rows');
-      const heading = document.getElementById('custom-split-heading');
+    function updateSettleSuggestedAmount() {
+      const from = document.getElementById('settle-from').value;
+      const to = document.getElementById('settle-to').value;
+      if (from === to) return;
 
-      container.classList.remove('hidden');
-      rows.innerHTML = '';
-
-      if (splitMode === 'EXACT') {
-        heading.textContent = 'Exact Amounts per Person';
-        const defaultPer = Math.floor(totalPaise / currentGroup.members.length);
-        currentGroup.members.forEach(m => {
-          const row = document.createElement('div');
-          row.className = 'flex items-center justify-between p-2 bg-surface-container-low rounded-lg';
-          row.innerHTML = `
-            <span class="font-body-md text-on-surface font-medium">${m}</span>
-            <div class="flex items-center gap-1">
-              <span class="text-xs text-outline font-bold">₹</span>
-              <input type="number" step="0.01" class="custom-split-input w-24 p-1 text-right bg-surface-container-lowest rounded font-label-md text-on-surface outline-none" data-member="${m}" value="${(defaultPer / 100).toFixed(2)}"/>
-            </div>
-          `;
-          rows.appendChild(row);
-        });
-      } else if (splitMode === 'PERCENT') {
-        heading.textContent = 'Percentages per Person (%)';
-        const defaultPct = (100 / currentGroup.members.length).toFixed(1);
-        currentGroup.members.forEach(m => {
-          const row = document.createElement('div');
-          row.className = 'flex items-center justify-between p-2 bg-surface-container-low rounded-lg';
-          row.innerHTML = `
-            <span class="font-body-md text-on-surface font-medium">${m}</span>
-            <div class="flex items-center gap-1">
-              <input type="number" step="1" max="100" class="custom-percent-input w-16 p-1 text-right bg-surface-container-lowest rounded font-label-md text-on-surface outline-none" data-member="${m}" value="${defaultPct}"/>
-              <span class="text-xs text-outline font-bold">%</span>
-            </div>
-          `;
-          rows.appendChild(row);
-        });
-      } else if (splitMode === 'SHARES') {
-        heading.textContent = 'Shares per Person';
-        currentGroup.members.forEach(m => {
-          const row = document.createElement('div');
-          row.className = 'flex items-center justify-between p-2 bg-surface-container-low rounded-lg';
-          row.innerHTML = `
-            <span class="font-body-md text-on-surface font-medium">${m}</span>
-            <div class="flex items-center gap-2">
-              <input type="number" step="1" min="1" class="custom-share-input w-14 p-1 text-center bg-surface-container-lowest rounded font-label-md text-on-surface outline-none" data-member="${m}" value="1"/>
-              <span class="text-xs text-outline font-bold">share</span>
-            </div>
-          `;
-          rows.appendChild(row);
-        });
+      const debts = (groupData && groupData.simplifiedDebts) || [];
+      for (const d of debts) {
+        if (d.includes(from) && d.includes(to)) {
+          const match = d.match(/₹([0-9,.]+)/);
+          if (match) {
+            const num = parseFloat(match[1].replace(/,/g, ''));
+            if (!isNaN(num)) document.getElementById('settle-amount').value = num.toFixed(2);
+            return;
+          }
+        }
       }
     }
 
-    // Compute shares based on current mode
-    function calculateFinalShares(totalPaise) {
+    function openAddMemberModal() {
+      document.getElementById('new-member-name').value = '';
+      openModal('modal-member');
+    }
+
+    function openNewGroupModal() {
+      document.getElementById('new-group-name').value = '';
+      openModal('modal-group');
+    }
+
+    function openModal(id) {
+      document.getElementById(id).classList.add('open');
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('open');
+    }
+
+    function closeModalOnBg(e, id) {
+      if (e.target.id === id) closeModal(id);
+    }
+
+    // Handlers
+    async function handleCreateExpense(e) {
+      e.preventDefault();
+      const amtInput = parseFloat(document.getElementById('exp-amount').value);
+      if (isNaN(amtInput) || amtInput <= 0) return;
+
+      const totalPaise = Math.round(amtInput * 100);
+      const desc = document.getElementById('exp-desc').value.trim();
+      const payer = document.getElementById('exp-payer').value;
+      const cat = document.getElementById('exp-category').value;
+      const dateVal = document.getElementById('exp-date').value || 'Today';
+      const notes = document.getElementById('exp-notes').value.trim();
+
+      const checkedBoxes = Array.from(document.querySelectorAll('#exp-participants input[type="checkbox"]:checked'));
+      const selectedMembers = checkedBoxes.map(cb => cb.value);
+
+      if (selectedMembers.length === 0) {
+        alert("Please select at least one participant.");
+        return;
+      }
+
+      const baseShare = Math.floor(totalPaise / selectedMembers.length);
+      const remainder = totalPaise % selectedMembers.length;
       const shares = {};
-      const members = currentGroup.members;
+      selectedMembers.forEach((m, idx) => {
+        shares[m] = baseShare + (idx === 0 ? remainder : 0);
+      });
 
-      if (splitMode === 'EQUAL') {
-        const base = Math.floor(totalPaise / members.length);
-        const rem = totalPaise % members.length;
-        members.forEach((m, idx) => {
-          shares[m] = base + (idx < rem ? 1 : 0);
-        });
-      } else if (splitMode === 'EXACT') {
-        const inputs = document.querySelectorAll('.custom-split-input');
-        inputs.forEach(inp => {
-          const m = inp.getAttribute('data-member');
-          shares[m] = Math.round(parseFloat(inp.value || 0) * 100);
-        });
-      } else if (splitMode === 'PERCENT') {
-        const inputs = document.querySelectorAll('.custom-percent-input');
-        let assigned = 0;
-        let lastMember = members[0];
-        inputs.forEach(inp => {
-          const m = inp.getAttribute('data-member');
-          const pct = parseFloat(inp.value || 0);
-          const amt = Math.round(totalPaise * (pct / 100));
-          shares[m] = amt;
-          assigned += amt;
-          lastMember = m;
-        });
-        shares[lastMember] += (totalPaise - assigned);
-      } else if (splitMode === 'SHARES') {
-        const inputs = document.querySelectorAll('.custom-share-input');
-        let totalShares = 0;
-        inputs.forEach(inp => totalShares += parseInt(inp.value || 1, 10));
-        let assigned = 0;
-        let lastMember = members[0];
-        inputs.forEach(inp => {
-          const m = inp.getAttribute('data-member');
-          const count = parseInt(inp.value || 1, 10);
-          const amt = Math.round(totalPaise * (count / totalShares));
-          shares[m] = amt;
-          assigned += amt;
-          lastMember = m;
-        });
-        shares[lastMember] += (totalPaise - assigned);
-      }
-      return shares;
-    }
-
-    // -------------------------------------------------------------------------
-    // Save Expense Action
-    // -------------------------------------------------------------------------
-    async function handleSaveExpense() {
-      const desc = document.getElementById('input-expense-desc').value.trim();
-      const amountPaise = parseRupeeInput(document.getElementById('input-expense-amount').value);
-      const payer = document.getElementById('select-payer').value;
-      const notes = document.getElementById('input-expense-notes').value.trim();
-      const dateText = document.getElementById('label-expense-date').textContent.replace('Today, ', '').trim();
-
-      if (!desc) {
-        showToast('Please enter an expense description', 'error');
-        return;
-      }
-      if (amountPaise <= 0) {
-        showToast('Amount must be greater than zero', 'error');
-        return;
-      }
-
-      const shares = calculateFinalShares(amountPaise);
-
-      const expensePayload = {
-        group: currentGroup.name,
+      const payload = {
+        group: currentGroupName,
         description: desc,
         payer: payer,
-        total: amountPaise,
-        category: selectedCategory.icon,
-        date: dateText,
+        total: totalPaise,
+        category: cat,
+        date: formatDateStr(dateVal),
         notes: notes,
-        splitType: splitMode,
         settlement: false,
         shares: shares
       };
 
-      if (isLiveBackend) {
-        try {
-          const res = await fetch(`${API_BASE}/api/expense`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(expensePayload)
-          });
-          if (res.ok) {
-            currentGroup = await res.json();
-            showToast('Expense saved to Java Backend!', 'check_circle');
-            switchView('group-detail');
-            return;
-          }
-        } catch (e) {
-          console.warn('Backend save failed, using local state', e);
+      try {
+        const res = await fetch('/api/group/expense', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        if (res.ok) {
+          groupData = await res.json();
+          render();
+          closeModal('modal-expense');
+        } else {
+          alert("Error recording expense");
         }
-      }
-
-      // Local fallback
-      currentGroup.expenses.unshift({
-        id: 'exp_' + Date.now(),
-        ...expensePayload
-      });
-      saveLocal();
-      showToast('Expense saved successfully!', 'check_circle');
-      switchView('group-detail');
-    }
-
-    // -------------------------------------------------------------------------
-    // Settle Up Modal Actions
-    // -------------------------------------------------------------------------
-    function openSettleUpWith(member, balance) {
-      const modal = document.getElementById('modal-settle-up');
-      modal.classList.remove('hidden');
-
-      const fromSel = document.getElementById('settle-from-select');
-      const toSel = document.getElementById('settle-to-select');
-      const amtInput = document.getElementById('settle-amount-input');
-
-      fromSel.innerHTML = '';
-      toSel.innerHTML = '';
-
-      currentGroup.members.forEach(m => {
-        fromSel.add(new Option(m, m));
-        toSel.add(new Option(m, m));
-      });
-
-      if (balance < 0) {
-        fromSel.value = member;
-        toSel.value = 'You';
-        amtInput.value = ((-balance) / 100).toFixed(2);
-      } else if (balance > 0) {
-        fromSel.value = 'You';
-        toSel.value = member;
-        amtInput.value = (balance / 100).toFixed(2);
-      } else {
-        fromSel.value = member;
-        toSel.value = 'You';
-        amtInput.value = '';
+      } catch (err) {
+        console.error("Save expense failed", err);
       }
     }
 
-    async function submitSettlement() {
-      const from = document.getElementById('settle-from-select').value;
-      const to = document.getElementById('settle-to-select').value;
-      const amtNum = parseFloat(document.getElementById('settle-amount-input').value);
+    async function handleSettle(e) {
+      e.preventDefault();
+      const amtInput = parseFloat(document.getElementById('settle-amount').value);
+      if (isNaN(amtInput) || amtInput <= 0) return;
+
+      const totalPaise = Math.round(amtInput * 100);
+      const from = document.getElementById('settle-from').value;
+      const to = document.getElementById('settle-to').value;
+      const method = document.getElementById('settle-method').value;
+      const dateVal = document.getElementById('settle-date').value || 'Today';
+      const notes = document.getElementById('settle-notes').value.trim();
 
       if (from === to) {
-        showToast('Payer and receiver must be different', 'error');
-        return;
-      }
-      if (isNaN(amtNum) || amtNum <= 0) {
-        showToast('Please enter a valid positive amount', 'error');
+        alert("Payer and recipient cannot be the same person.");
         return;
       }
 
-      const totalPaise = Math.round(amtNum * 100);
-      const settlementPayload = {
-        group: currentGroup.name,
+      const payload = {
+        group: currentGroupName,
         from: from,
         to: to,
         amount: totalPaise,
-        method: settleMethod,
-        date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
-        notes: `${settleMethod} Payment recorded`
+        method: method,
+        date: formatDateStr(dateVal),
+        notes: notes ? `${method}: ${notes}` : `${method} payment`
       };
 
-      if (isLiveBackend) {
-        try {
-          const res = await fetch(`${API_BASE}/api/settle`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(settlementPayload)
-          });
-          if (res.ok) {
-            currentGroup = await res.json();
-            document.getElementById('modal-settle-up').classList.add('hidden');
-            showToast('Settlement recorded in Java backend!', 'check_circle');
-            renderGroupDetail();
-            return;
-          }
-        } catch (e) {
-          console.warn('Backend settle failed, falling back to local', e);
-        }
-      }
-
-      // Local fallback
-      const shares = {};
-      shares[to] = totalPaise;
-      currentGroup.expenses.unshift({
-        id: 'settle_' + Date.now(),
-        description: `${from} paid ${to} ${formatMoney(totalPaise)}`,
-        payer: from,
-        total: totalPaise,
-        date: settlementPayload.date,
-        category: 'price_check',
-        notes: `${settleMethod} Payment recorded`,
-        settlement: true,
-        shares: shares
-      });
-      saveLocal();
-      document.getElementById('modal-settle-up').classList.add('hidden');
-      showToast('Settlement recorded!', 'check_circle');
-      renderGroupDetail();
-    }
-
-    // -------------------------------------------------------------------------
-    // Balances & Simplified Debts Modal
-    // -------------------------------------------------------------------------
-    function openBalancesModal() {
-      const modal = document.getElementById('modal-balances');
-      modal.classList.remove('hidden');
-
-      const netBalances = currentGroup.netBalances || computeBalances(currentGroup);
-      const debts = currentGroup.simplifiedDebts || computeSimplifiedDebts(netBalances);
-
-      const listContainer = document.getElementById('balances-list-container');
-      listContainer.innerHTML = '';
-
-      Object.entries(netBalances).forEach(([m, bal]) => {
-        const row = document.createElement('div');
-        row.className = 'p-3 rounded-xl bg-surface-container-low flex items-center justify-between';
-        
-        let label = '';
-        let badgeClass = '';
-        if (bal > 0) {
-          label = `gets back ${formatMoney(bal)}`;
-          badgeClass = 'text-primary font-bold';
-        } else if (bal < 0) {
-          label = `owes ${formatMoney(-bal)}`;
-          badgeClass = 'text-secondary font-bold';
+      try {
+        const res = await fetch('/api/group/settle', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        if (res.ok) {
+          groupData = await res.json();
+          render();
+          closeModal('modal-settle');
         } else {
-          label = `settled up (₹0.00)`;
-          badgeClass = 'text-outline font-semibold';
+          alert("Error recording settlement");
         }
+      } catch (err) {
+        console.error("Settlement failed", err);
+      }
+    }
 
-        row.innerHTML = `
-          <div class="flex items-center gap-2.5">
-            <div class="w-8 h-8 rounded-full bg-surface-container text-on-surface flex items-center justify-center font-bold text-xs">
-              ${m.charAt(0)}
-            </div>
-            <span class="font-headline-sm text-headline-sm text-on-surface">${m}</span>
-          </div>
-          <span class="font-label-md text-label-md ${badgeClass}">${label}</span>
-        `;
-        listContainer.appendChild(row);
-      });
+    async function handleAddMember(e) {
+      e.preventDefault();
+      const name = document.getElementById('new-member-name').value.trim();
+      const shouldSwitch = document.getElementById('switch-to-new-user-checkbox').checked;
+      if (!name) return;
 
-      const debtsContainer = document.getElementById('simplified-debts-container');
-      debtsContainer.innerHTML = '';
-
-      if (debts.length === 0) {
-        debtsContainer.innerHTML = `
-          <div class="p-3 text-center text-on-surface-variant flex items-center justify-center gap-2">
-            <span class="material-symbols-outlined text-emerald-600">check_circle</span>
-            <span class="text-sm font-semibold">Everyone is completely settled up! (₹0.00)</span>
-          </div>
-        `;
-      } else {
-        debts.forEach(d => {
-          const item = document.createElement('div');
-          item.className = 'p-2.5 bg-surface-container-lowest rounded-lg border border-surface-container flex items-center justify-between text-sm';
-          
-          let fromName = d.from || '';
-          let toName = d.to || '';
-          let amt = d.amount ? formatMoney(d.amount) : '';
-
-          if (typeof d === 'string') {
-            item.innerHTML = `<span class="font-medium text-on-surface">${d}</span>`;
-          } else {
-            item.innerHTML = `
-              <div class="flex items-center gap-2">
-                <span class="font-bold text-on-surface">${fromName}</span>
-                <span class="material-symbols-outlined text-outline text-[16px]">arrow_forward</span>
-                <span class="font-bold text-on-surface">${toName}</span>
-              </div>
-              <span class="font-bold text-primary">${amt}</span>
-            `;
+      try {
+        const res = await fetch('/api/group/member', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ group: currentGroupName, name: name })
+        });
+        if (res.ok) {
+          groupData = await res.json();
+          if (shouldSwitch) {
+            activeUser = name;
+            localStorage.setItem("splitwise_active_user", name);
           }
-          debtsContainer.appendChild(item);
-        });
+          render();
+          closeModal('modal-member');
+        } else {
+          alert("Failed to add user");
+        }
+      } catch (err) {
+        console.error("Add member failed", err);
       }
     }
 
-    // -------------------------------------------------------------------------
-    // Spending Breakdown Modal
-    // -------------------------------------------------------------------------
-    function openSpendingBreakdown() {
-      const modal = document.getElementById('modal-spending-breakdown');
-      modal.classList.remove('hidden');
+    async function handleCreateGroup(e) {
+      e.preventDefault();
+      const name = document.getElementById('new-group-name').value.trim();
+      if (!name) return;
 
-      let totalSpend = 0;
-      const catTotals = {};
-      const memberTotals = {};
-
-      currentGroup.members.forEach(m => memberTotals[m] = 0);
-
-      currentGroup.expenses.forEach(e => {
-        if (e.settlement) return;
-        totalSpend += e.total;
-        catTotals[e.category] = (catTotals[e.category] || 0) + e.total;
-        memberTotals[e.payer] = (memberTotals[e.payer] || 0) + e.total;
-      });
-
-      document.getElementById('breakdown-total-spend').textContent = formatMoney(totalSpend);
-
-      const catBars = document.getElementById('breakdown-category-bars');
-      catBars.innerHTML = '';
-      if (Object.keys(catTotals).length === 0) {
-        catBars.innerHTML = `<p class="text-xs text-outline italic">No expenses recorded yet.</p>`;
-      } else {
-        Object.entries(catTotals).forEach(([cat, amt]) => {
-          const pct = totalSpend > 0 ? Math.round((amt / totalSpend) * 100) : 0;
-          const row = document.createElement('div');
-          row.className = 'flex flex-col gap-1';
-          row.innerHTML = `
-            <div class="flex items-center justify-between text-xs">
-              <span class="font-semibold text-on-surface capitalize">${cat.replace('_', ' ')}</span>
-              <span class="font-bold text-on-surface">${formatMoney(amt)} (${pct}%)</span>
-            </div>
-            <div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
-              <div class="h-full bg-primary-container rounded-full" style="width: ${pct}%"></div>
-            </div>
-          `;
-          catBars.appendChild(row);
+      try {
+        const res = await fetch('/api/group', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name: name })
         });
+        if (res.ok) {
+          currentGroupName = name;
+          groupData = await res.json();
+          render();
+          closeModal('modal-group');
+          fetchAllGroups();
+        } else {
+          alert("Failed to create group");
+        }
+      } catch (err) {
+        console.error("Create group failed", err);
       }
-
-      const membersList = document.getElementById('breakdown-members-list');
-      membersList.innerHTML = '';
-      Object.entries(memberTotals).forEach(([m, amt]) => {
-        const row = document.createElement('div');
-        row.className = 'p-2.5 bg-surface-container-low rounded-lg flex items-center justify-between text-sm';
-        row.innerHTML = `
-          <span class="font-semibold text-on-surface">${m} paid</span>
-          <span class="font-bold ${amt > 0 ? 'text-primary' : 'text-outline'}">${formatMoney(amt)}</span>
-        `;
-        membersList.appendChild(row);
-      });
     }
 
-    // -------------------------------------------------------------------------
-    // Toast Messages
-    // -------------------------------------------------------------------------
-    function showToast(msg, icon = 'check_circle') {
-      const toast = document.getElementById('toast');
-      document.getElementById('toast-message').textContent = msg;
-      document.getElementById('toast-icon').textContent = icon;
-      toast.classList.remove('opacity-0', '-translate-y-2');
-      setTimeout(() => {
-        toast.classList.add('opacity-0', '-translate-y-2');
-      }, 2600);
+    function formatDateStr(isoOrText) {
+      if (!isoOrText || !isoOrText.includes('-')) return isoOrText || 'Today';
+      const d = new Date(isoOrText);
+      return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
     }
 
-    // -------------------------------------------------------------------------
-    // Event Listeners Setup
-    // -------------------------------------------------------------------------
+    // Initialize on page load
     document.addEventListener('DOMContentLoaded', () => {
-      // FAB & Hero Add Expense
-      document.getElementById('btn-fab-add-expense')?.addEventListener('click', () => switchView('add-expense'));
-      document.getElementById('btn-add-expense-hero')?.addEventListener('click', () => switchView('add-expense'));
-      
-      // Back & Close buttons
-      document.getElementById('btn-back-from-add')?.addEventListener('click', () => switchView('group-detail'));
-      document.getElementById('btn-close-add-modal')?.addEventListener('click', () => switchView('group-detail'));
-
-      // Save Expense buttons
-      document.getElementById('save-expense-top-btn')?.addEventListener('click', handleSaveExpense);
-      document.getElementById('save-expense-bottom-btn')?.addEventListener('click', handleSaveExpense);
-
-      // Amount live formatting listener
-      document.getElementById('input-expense-amount')?.addEventListener('input', updateSplitCalculations);
-
-      // Reset to 0 Buttons
-      document.getElementById('btn-quick-reset')?.addEventListener('click', handleResetToZero);
-
-      // Options menu toggle
-      document.getElementById('btn-menu-options')?.addEventListener('click', () => {
-        document.getElementById('modal-options-menu').classList.toggle('hidden');
-      });
-
-      // Split Mode Buttons
-      document.querySelectorAll('.split-mode-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-          document.querySelectorAll('.split-mode-btn').forEach(b => {
-            b.classList.remove('bg-primary', 'text-on-primary');
-            b.classList.add('bg-surface-container-lowest', 'text-on-surface');
-          });
-          this.classList.remove('bg-surface-container-lowest', 'text-on-surface');
-          this.classList.add('bg-primary', 'text-on-primary');
-          splitMode = this.getAttribute('data-mode');
-          updateSplitCalculations();
-        });
-      });
-
-      // Category Selector Button & Modal
-      document.getElementById('btn-category-selector')?.addEventListener('click', () => {
-        document.getElementById('modal-category-picker').classList.remove('hidden');
-      });
-      document.querySelectorAll('.category-choice-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-          selectedCategory = {
-            icon: this.getAttribute('data-icon'),
-            name: this.getAttribute('data-name'),
-            sub: this.getAttribute('data-sub')
-          };
-          document.getElementById('current-category-icon').textContent = selectedCategory.icon;
-          document.getElementById('current-category-label').textContent = `Category: ${selectedCategory.name} • ${selectedCategory.sub}`;
-          document.getElementById('modal-category-picker').classList.add('hidden');
-        });
-      });
-
-      // Date Picker
-      document.getElementById('input-expense-date-picker')?.addEventListener('change', function() {
-        if (this.value) {
-          const d = new Date(this.value);
-          document.getElementById('label-expense-date').textContent = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-        }
-      });
-
-      // Settle Up Modal Triggers
-      document.getElementById('btn-settle-up-hero')?.addEventListener('click', () => openSettleUpWith('Rahul', 0));
-      document.getElementById('btn-close-settle-modal')?.addEventListener('click', () => {
-        document.getElementById('modal-settle-up').classList.add('hidden');
-      });
-      document.getElementById('btn-submit-settlement')?.addEventListener('click', submitSettlement);
-
-      // Settle Payment Methods
-      document.querySelectorAll('.settle-method-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-          document.querySelectorAll('.settle-method-btn').forEach(b => {
-            b.classList.remove('bg-primary-container', 'text-on-primary-container');
-            b.classList.add('bg-surface-container', 'text-on-surface');
-          });
-          this.classList.remove('bg-surface-container', 'text-on-surface');
-          this.classList.add('bg-primary-container', 'text-on-primary-container');
-          settleMethod = this.getAttribute('data-method');
-        });
-      });
-
-      // Balances Modal Triggers
-      document.getElementById('btn-view-balances-hero')?.addEventListener('click', openBalancesModal);
-      document.getElementById('btn-close-balances-modal')?.addEventListener('click', () => {
-        document.getElementById('modal-balances').classList.add('hidden');
-      });
-
-      // Spending Breakdown Trigger
-      document.getElementById('btn-spending-breakdown')?.addEventListener('click', openSpendingBreakdown);
-
-      // Group Selector Trigger
-      document.getElementById('btn-group-selector')?.addEventListener('click', () => {
-        document.getElementById('modal-group-switcher').classList.remove('hidden');
-        renderGroupsModalList();
-      });
-      document.getElementById('btn-group-settings')?.addEventListener('click', () => {
-        document.getElementById('modal-options-menu').classList.remove('hidden');
-      });
-
-      // Create Group Submit
-      document.getElementById('btn-create-group-submit')?.addEventListener('click', handleCreateGroup);
-
-      // Add Person from chip in Add Expense
-      document.getElementById('btn-add-person-chip')?.addEventListener('click', () => {
-        const pName = prompt("Enter new participant name:");
-        if (pName && pName.trim()) {
-          const clean = pName.trim();
-          if (!currentGroup.members.includes(clean)) {
-            currentGroup.members.push(clean);
-            saveLocal();
-            setupAddExpenseForm();
-            showToast(`${clean} added to group!`, 'person_add');
-          }
-        }
-      });
-
-      // Backend status pill click -> retry
-      document.getElementById('backend-status-pill')?.addEventListener('click', () => {
-        showToast('Syncing with Java backend...', 'sync');
-        loadGroupData();
-      });
-
-      // Initial Load
-      loadGroupData();
+      fetchGroupData();
     });
-
-    // Helper for Group Modal List
-    function renderGroupsModalList() {
-      const container = document.getElementById('groups-list-container');
-      container.innerHTML = '';
-      const grps = [currentGroup.name, "Manali Trip 🏔️", "Flatmates 402 🏠"];
-      grps.forEach(g => {
-        const item = document.createElement('div');
-        item.className = 'p-3 rounded-xl bg-surface-container-low flex items-center justify-between cursor-pointer hover:bg-surface-container transition-colors';
-        item.onclick = () => {
-          currentGroupName = g;
-          document.getElementById('modal-group-switcher').classList.add('hidden');
-          loadGroupData();
-        };
-        item.innerHTML = `
-          <div class="flex items-center gap-2.5">
-            <span class="material-symbols-outlined text-primary">group</span>
-            <span class="font-headline-sm text-headline-sm text-on-surface">${g}</span>
-          </div>
-          ${g === currentGroup.name ? `<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>` : ''}
-        `;
-        container.appendChild(item);
-      });
-    }
-
-    function handleCreateGroup() {
-      const name = document.getElementById('input-new-group-name').value.trim();
-      const memStr = document.getElementById('input-new-group-members').value.trim();
-      if (!name) {
-        showToast('Please enter a group name', 'error');
-        return;
-      }
-      const memList = memStr ? memStr.split(',').map(s => s.trim()).filter(Boolean) : ['You', 'Rahul', 'Priya', 'Amit'];
-      if (!memList.includes('You')) memList.push('You');
-
-      currentGroup = {
-        name: name,
-        members: memList,
-        expenses: []
-      };
-      currentGroupName = name;
-      saveLocal();
-      document.getElementById('modal-group-switcher').classList.add('hidden');
-      showToast(`Group "${name}" created!`, 'check_circle');
-      renderGroupDetail();
-    }
   </script>
-
 </body>
 </html>
