@@ -68,7 +68,7 @@ public class SplitwiseApp {
     }
 
     public static class Group {
-        public final String name;
+        public String name;
         public final List<String> members = new ArrayList<>();
         public final List<Expense> expenses = new ArrayList<>();
 
@@ -285,6 +285,68 @@ public class SplitwiseApp {
                     return;
                 }
                 sendResponse(exchange, 400, "{\"error\":\"Missing group name\"}", "application/json");
+                return;
+            }
+
+            // 2a. REST API: POST /api/group/rename
+            if ((path.equals("/api/group/rename") || path.equals("/api/rename-group")) && method.equalsIgnoreCase("POST")) {
+                String body = readRequestBody(exchange);
+                String oldName = extractString(body, "oldName");
+                if (oldName.isEmpty()) oldName = extractString(body, "group");
+                String newName = extractString(body, "newName");
+                if (newName.isEmpty()) newName = extractString(body, "name");
+
+                if (!oldName.isEmpty() && !newName.isEmpty()) {
+                    synchronized (groups) {
+                        Group g = groups.remove(oldName);
+                        if (g != null) {
+                            g.name = newName;
+                            groups.put(newName, g);
+                            sendResponse(exchange, 200, groupToJson(g), "application/json");
+                            return;
+                        }
+                    }
+                    sendResponse(exchange, 404, "{\"error\":\"Group not found\"}", "application/json");
+                    return;
+                }
+                sendResponse(exchange, 400, "{\"error\":\"Missing oldName or newName\"}", "application/json");
+                return;
+            }
+
+            // 2b. REST API: POST or DELETE /api/group/delete
+            if ((path.equals("/api/group/delete") || path.equals("/api/delete-group") || (path.equals("/api/group") && method.equalsIgnoreCase("DELETE")))) {
+                String body = readRequestBody(exchange);
+                String name = extractString(body, "name");
+                if (name.isEmpty()) name = extractString(body, "group");
+                if (name.isEmpty()) {
+                    String query = exchange.getRequestURI().getQuery();
+                    if (query != null && query.contains("name=")) {
+                        try {
+                            String raw = query.substring(query.indexOf("name=") + 5);
+                            int amp = raw.indexOf('&');
+                            if (amp != -1) raw = raw.substring(0, amp);
+                            name = java.net.URLDecoder.decode(raw, StandardCharsets.UTF_8.name());
+                        } catch (Exception ignored) {}
+                    }
+                }
+
+                if (!name.isEmpty()) {
+                    synchronized (groups) {
+                        groups.remove(name);
+                        Group fallback = groups.isEmpty() ? null : groups.values().iterator().next();
+                        if (fallback != null) {
+                            sendResponse(exchange, 200, groupToJson(fallback), "application/json");
+                        } else {
+                            // If empty, create default group
+                            Group defaultGroup = new Group("Personal Expenses");
+                            defaultGroup.members.add("You");
+                            groups.put(defaultGroup.name, defaultGroup);
+                            sendResponse(exchange, 200, groupToJson(defaultGroup), "application/json");
+                        }
+                    }
+                    return;
+                }
+                sendResponse(exchange, 400, "{\"error\":\"Missing group name to delete\"}", "application/json");
                 return;
             }
 

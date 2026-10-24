@@ -192,6 +192,7 @@
       font-size: 13px;
       color: var(--text-secondary);
       margin-bottom: 2px;
+      group: relative;
     }
 
     .group-item:hover {
@@ -305,11 +306,42 @@
       gap: 4px;
     }
 
+    .group-title-with-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
     .group-name {
       font-size: 18px;
       font-weight: 600;
       letter-spacing: -0.3px;
       color: var(--text-main);
+    }
+
+    .btn-icon-subtle {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-muted);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
+      transition: all 0.1s ease;
+    }
+
+    .btn-icon-subtle:hover {
+      background: var(--bg-subtle);
+      color: var(--text-main);
+      border-color: var(--border-subtle);
+    }
+
+    .btn-icon-subtle.danger:hover {
+      background: var(--negative-bg);
+      color: var(--negative);
+      border-color: var(--negative-border);
     }
 
     .group-meta {
@@ -366,6 +398,16 @@
 
     .btn-primary:hover {
       background: var(--accent-hover);
+    }
+
+    .btn-danger {
+      background: var(--negative);
+      border: 1px solid var(--negative);
+      color: #ffffff;
+    }
+
+    .btn-danger:hover {
+      background: #991b1b;
     }
 
     .btn-sm {
@@ -1097,7 +1139,15 @@
     <div class="group-header">
       <div class="group-header-top">
         <div class="group-title-row">
-          <h1 class="group-name" id="display-group-name">Goa Trip</h1>
+          <div class="group-title-with-actions">
+            <h1 class="group-name" id="display-group-name">Goa Trip</h1>
+            <button class="btn-icon-subtle" onclick="openRenameGroupModal()" title="Edit group name">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width: 14px; height: 14px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
+            </button>
+            <button class="btn-icon-subtle danger" onclick="openDeleteGroupModal()" title="Delete group">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width: 14px; height: 14px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+            </button>
+          </div>
           <div class="group-meta">
             <span id="display-member-count">4 members</span>
             <span>·</span>
@@ -1107,6 +1157,10 @@
           </div>
         </div>
         <div class="group-actions">
+          <button class="btn btn-default" onclick="openNewGroupModal()" title="Add a new group">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            New Group
+          </button>
           <button class="btn btn-default" onclick="openSwitchUserModal()">
             <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
             <span id="header-user-btn-label">Viewing as Aditya</span>
@@ -1433,6 +1487,54 @@
     </div>
   </div>
 
+  <!-- MODAL 6: Rename Group -->
+  <div class="modal-overlay" id="modal-rename-group" onclick="closeModalOnBg(event, 'modal-rename-group')">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="modal-title">Rename Group</div>
+        <button class="modal-close" onclick="closeModal('modal-rename-group')">×</button>
+      </div>
+      <form id="rename-group-form" onsubmit="handleRenameGroup(event)">
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="form-label">Current Group Name</label>
+            <input type="text" id="rename-old-name" class="form-input" disabled style="background:var(--bg-subtle); color:var(--text-muted);"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">New Group Name</label>
+            <input type="text" id="rename-new-name" class="form-input" placeholder="e.g. North Goa Vacay" required autofocus/>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" onclick="closeModal('modal-rename-group')">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Name</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL 7: Delete Group Confirmation -->
+  <div class="modal-overlay" id="modal-delete-group" onclick="closeModalOnBg(event, 'modal-delete-group')">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="modal-title" style="color: var(--negative);">Delete Group</div>
+        <button class="modal-close" onclick="closeModal('modal-delete-group')">×</button>
+      </div>
+      <div class="modal-body">
+        <div style="font-size: 13px; color: var(--text-main); line-height: 1.5;">
+          Are you sure you want to delete group <strong id="delete-target-group-name"></strong>?
+        </div>
+        <div style="font-size: 12px; color: var(--text-muted); line-height: 1.4;">
+          This will permanently remove all transactions, member shares, and debt settlement plans for this group.
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" onclick="closeModal('modal-delete-group')">Cancel</button>
+        <button type="button" class="btn btn-danger" onclick="confirmDeleteGroup()">Delete Group</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Application Logic -->
   <script>
     // State
@@ -1478,6 +1580,7 @@
         const res = await fetch(`/api/group?name=${encodeURIComponent(currentGroupName)}`);
         if (!res.ok) throw new Error("Failed to load group");
         groupData = await res.json();
+        currentGroupName = groupData.name;
 
         // Ensure activeUser is valid for current group
         if (groupData.members && !groupData.members.includes(activeUser)) {
@@ -1632,7 +1735,6 @@
 
       // Calculate based on simplified debts
       (groupData.simplifiedDebts || []).forEach(debt => {
-        // e.g. "Rahul owes Priya  ₹820.00"
         const parts = debt.split(/\s+owes?\s+/);
         if (parts.length >= 2) {
           const debtor = parts[0].trim();
@@ -1849,7 +1951,6 @@
       settleFrom.innerHTML = optionsHtml;
       settleTo.innerHTML = optionsHtml;
 
-      // Select activeUser as default payer
       if (members.includes(activeUser)) expPayer.value = activeUser;
       if (members.includes(activeUser)) settleFrom.value = activeUser;
       const other = members.find(m => m !== activeUser);
@@ -1922,6 +2023,17 @@
     function openNewGroupModal() {
       document.getElementById('new-group-name').value = '';
       openModal('modal-group');
+    }
+
+    function openRenameGroupModal() {
+      document.getElementById('rename-old-name').value = currentGroupName;
+      document.getElementById('rename-new-name').value = currentGroupName;
+      openModal('modal-rename-group');
+    }
+
+    function openDeleteGroupModal() {
+      document.getElementById('delete-target-group-name').textContent = `"${currentGroupName}"`;
+      openModal('modal-delete-group');
     }
 
     function openModal(id) {
@@ -2083,12 +2195,64 @@
           groupData = await res.json();
           render();
           closeModal('modal-group');
-          fetchAllGroups();
+          await fetchAllGroups();
         } else {
           alert("Failed to create group");
         }
       } catch (err) {
         console.error("Create group failed", err);
+      }
+    }
+
+    async function handleRenameGroup(e) {
+      e.preventDefault();
+      const oldName = document.getElementById('rename-old-name').value;
+      const newName = document.getElementById('rename-new-name').value.trim();
+      if (!newName || newName === oldName) {
+        closeModal('modal-rename-group');
+        return;
+      }
+
+      try {
+        const res = await fetch('/api/group/rename', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ oldName: oldName, newName: newName })
+        });
+        if (res.ok) {
+          currentGroupName = newName;
+          groupData = await res.json();
+          render();
+          closeModal('modal-rename-group');
+          await fetchAllGroups();
+        } else {
+          alert("Failed to rename group");
+        }
+      } catch (err) {
+        console.error("Rename group failed", err);
+      }
+    }
+
+    async function confirmDeleteGroup() {
+      const targetGroup = currentGroupName;
+      try {
+        const res = await fetch('/api/group/delete', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name: targetGroup })
+        });
+        if (res.ok) {
+          closeModal('modal-delete-group');
+          const nextData = await res.json();
+          currentGroupName = nextData.name;
+          groupData = nextData;
+          render();
+          await fetchAllGroups();
+        } else {
+          alert("Failed to delete group");
+        }
+      } catch (err) {
+        console.error("Delete group failed", err);
       }
     }
 
