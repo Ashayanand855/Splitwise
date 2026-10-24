@@ -55,11 +55,56 @@
       --shadow-popover: 0 4px 12px rgba(0, 0, 0, 0.08);
     }
 
+    /* Refined Obsidian Fintech Dark Theme */
+    [data-theme="dark"] {
+      --bg-base: #111215;
+      --bg-surface: #18191e;
+      --bg-subtle: #202228;
+      --bg-hover: #262931;
+
+      --border-subtle: #292c34;
+      --border-muted: #383c47;
+      --border-focus: #e4e4e7;
+
+      --text-main: #f4f4f5;
+      --text-secondary: #a1a1aa;
+      --text-muted: #71717a;
+      --text-dim: #52525b;
+
+      --accent: #14b8a6;
+      --accent-hover: #2dd4bf;
+      --accent-subtle: #042f2e;
+      --accent-border: #115e59;
+
+      --positive: #4ade80;
+      --positive-bg: #052e16;
+      --positive-border: #166534;
+
+      --negative: #f87171;
+      --negative-bg: #450a0a;
+      --negative-border: #991b1b;
+
+      --shadow-subtle: 0 1px 2px rgba(0, 0, 0, 0.3);
+      --shadow-popover: 0 4px 16px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Smooth micro-animations and transition foundation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.97) translateY(8px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
       -webkit-font-smoothing: antialiased;
+      transition: background-color 0.18s ease, border-color 0.18s ease, color 0.14s ease, box-shadow 0.18s ease;
     }
 
     body {
@@ -527,15 +572,16 @@
       gap: 12px;
       padding: 10px 16px;
       border-bottom: 1px solid var(--border-subtle);
-      transition: background 0.1s ease;
+      transition: background 0.15s ease, transform 0.15s ease;
+      animation: fadeIn 0.22s ease-out;
     }
 
     .ledger-row:last-child {
       border-bottom: none;
     }
 
-    .ledger-row:hover {
-      background: #faf9f6;
+    .ledger-row:hover:not(.ledger-head) {
+      background: var(--bg-hover);
     }
 
     .ledger-head {
@@ -705,6 +751,13 @@
       flex-direction: column;
       gap: 12px;
       box-shadow: var(--shadow-subtle);
+      transition: transform 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
+      animation: fadeIn 0.22s ease-out;
+    }
+
+    .member-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
     }
 
     .member-top {
@@ -786,15 +839,15 @@
     .modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(24, 24, 27, 0.4);
-      backdrop-filter: blur(2px);
+      background: rgba(18, 20, 24, 0.45);
+      backdrop-filter: blur(3px);
       display: flex;
       align-items: center;
       justify-content: center;
       z-index: 100;
       opacity: 0;
       pointer-events: none;
-      transition: opacity 0.12s ease;
+      transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1);
       padding: 16px;
     }
 
@@ -813,12 +866,12 @@
       display: flex;
       flex-direction: column;
       overflow: hidden;
-      transform: translateY(6px);
-      transition: transform 0.12s ease;
+      transform: translateY(10px) scale(0.98);
+      transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .modal-overlay.open .modal-box {
-      transform: translateY(0);
+      transform: translateY(0) scale(1);
     }
 
     .modal-header {
@@ -1079,7 +1132,12 @@
     <div class="brand-header">
       <div class="brand-logo">₹</div>
       <div class="brand-title">Splitwise</div>
-      <div class="brand-sub">INR</div>
+      <button class="btn-icon-subtle" id="theme-toggle-btn" onclick="toggleTheme()" title="Toggle dark / light mode" style="margin-left:auto;">
+        <!-- Sun icon (shown in dark mode) -->
+        <svg id="theme-icon-sun" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width: 15px; height: 15px; display: none;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+        <!-- Moon icon (shown in light mode) -->
+        <svg id="theme-icon-moon" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width: 15px; height: 15px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+      </button>
     </div>
 
     <div class="sidebar-section">
@@ -1172,6 +1230,10 @@
           <button class="btn btn-primary" onclick="openAddExpenseModal()">
             <svg fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
             Add expense
+          </button>
+          <button class="btn-icon-subtle" onclick="toggleTheme()" title="Toggle dark / light mode" style="padding: 7px;">
+            <svg class="header-theme-icon-sun" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width: 16px; height: 16px; display: none;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+            <svg class="header-theme-icon-moon" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width: 16px; height: 16px;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
           </button>
         </div>
       </div>
@@ -1680,10 +1742,18 @@
     function switchView(view) {
       currentView = view;
 
-      // Update screen sections
-      document.getElementById('view-overview').style.display = view === 'overview' ? 'block' : 'none';
-      document.getElementById('view-settlements').style.display = view === 'settlements' ? 'block' : 'none';
-      document.getElementById('view-members').style.display = view === 'members' ? 'block' : 'none';
+      // Update screen sections with smooth fade-in
+      ['overview', 'settlements', 'members'].forEach(v => {
+        const sec = document.getElementById(`view-${v}`);
+        if (v === view) {
+          sec.style.display = 'block';
+          sec.style.animation = 'none';
+          sec.offsetHeight; /* trigger reflow */
+          sec.style.animation = 'fadeIn 0.22s ease-out';
+        } else {
+          sec.style.display = 'none';
+        }
+      });
 
       // Desktop top tabs
       document.querySelectorAll('.screen-tab').forEach(t => t.classList.remove('active'));
@@ -2262,8 +2332,39 @@
       return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
     }
 
+    // Theme Management (Light / Dark Mode)
+    function applyTheme(theme) {
+      if (theme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        document.querySelectorAll('#theme-icon-sun, .header-theme-icon-sun').forEach(el => el.style.display = 'block');
+        document.querySelectorAll('#theme-icon-moon, .header-theme-icon-moon').forEach(el => el.style.display = 'none');
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+        document.querySelectorAll('#theme-icon-sun, .header-theme-icon-sun').forEach(el => el.style.display = 'none');
+        document.querySelectorAll('#theme-icon-moon, .header-theme-icon-moon').forEach(el => el.style.display = 'block');
+      }
+      localStorage.setItem('splitwise_theme', theme);
+    }
+
+    function toggleTheme() {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      applyTheme(isDark ? 'light' : 'dark');
+    }
+
+    function initTheme() {
+      const savedTheme = localStorage.getItem('splitwise_theme');
+      if (savedTheme) {
+        applyTheme(savedTheme);
+      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        applyTheme('dark');
+      } else {
+        applyTheme('light');
+      }
+    }
+
     // Initialize on page load
     document.addEventListener('DOMContentLoaded', () => {
+      initTheme();
       fetchGroupData();
     });
   </script>
