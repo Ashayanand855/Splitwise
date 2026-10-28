@@ -704,6 +704,11 @@
       justify-content: space-between;
       padding: 13px 18px;
       border-bottom: 1px solid var(--border-subtle);
+      transition: background 0.15s ease;
+    }
+
+    .settlement-row.settlement-row-highlight {
+      background: var(--bg-subtle);
     }
 
     .settlement-row:last-child {
@@ -1941,7 +1946,7 @@
         const involvesActiveUser = debtor === activeUser || creditor === activeUser;
 
         return `
-          <div class="settlement-row" style="${involvesActiveUser ? 'background: #fbfbf9;' : ''}">
+          <div class="settlement-row ${involvesActiveUser ? 'settlement-row-highlight' : ''}">
             <div class="settlement-info">
               <div class="avatar" style="width:24px; height:24px; font-size:10px;">${debtor.substring(0, 2).toUpperCase()}</div>
               <div>
